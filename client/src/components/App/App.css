@@ -1,4 +1,4 @@
-@import url('https://netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.css');
+@import url('https://use.fontawesome.com/releases/v5.7.2/css/all.css');
 
 *,
 *:before,
@@ -118,23 +118,8 @@ input {
     font: inherit;
     transition: background-color .3s;
 }
-
-.user:before {
-    content: '\f007';
-    font: 14px fontawesome;
-    color: #5b5b5b;
-}
-
-.lock:before {
-    content: '\f023';
-    font: 14px fontawesome;
-    color: #5b5b5b;
-}
-
-.envelope:before {
-    content: '\f0e0';
-    font: 14px fontawesome;
-    color: #5b5b5b;
+.fa-envelope {
+    font-size: 14px;
 }
 
 label, input {
@@ -147,8 +132,8 @@ label {
     background-color: #222222;
     border-bottom-right-radius: 0;
     border-top-right-radius: 0;
-    padding-left: 1.25rem;
-    padding-right: 1.25rem;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 .form__body input {
@@ -179,15 +164,4 @@ label {
 .btn:focus,
 .btn:hover {
     background-color: #197071;
-}
-
-.hidden {
-    border: 0;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
 }

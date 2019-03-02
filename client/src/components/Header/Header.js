@@ -42,7 +42,7 @@ class Header extends Component {
                                                 }
 
                                                 <li>
-                                                    <Link to="#">Logout</Link>
+                                                    <Link to="#" onClick={this.props.logout}>Logout</Link>
                                                 </li>
                                             </span>
                                         )

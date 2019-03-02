@@ -25,8 +25,8 @@ class Login extends Component {
 
                         <div className="form__body">
                             <div className="form__controls">
-                                <label className="user" htmlFor="username">
-                                    <span className="hidden">Username</span>
+                                <label htmlFor="username">
+                                    <i className="fas fa-user"/>
                                 </label>
 
                                 <input type="text" onChange={this.handleChange} id="username" className="field" name="username"
@@ -34,8 +34,9 @@ class Login extends Component {
                             </div>
 
                             <div className="form__controls">
-                                <label className="lock" htmlFor="password"><span
-                                    className="hidden">Password</span></label>
+                                <label htmlFor="password">
+                                    <i className="fas fa-lock"/>
+                                </label>
 
                                 <input type="password" onChange={this.handleChange} id="password" className="field" name="password"
                                        placeholder="Password" required/>

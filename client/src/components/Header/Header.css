@@ -36,10 +36,10 @@
 
 
 .Header .nav ul li a {
-    color: #7ce228;
+    color: #fff;
     transition: color .5s ease;
 }
 
 .Header .nav ul li a:hover, .Header .nav ul li a.active {
-    color: #fff;
+    color: #7ce228;
 }

@@ -74,6 +74,20 @@ class App extends Component {
             });
     }
 
+    logout() {
+        localStorage.removeItem('username');
+        this.setState({
+            username: null,
+            isAdmin: false
+        });
+
+        toast.success('Logout successfully!', {
+            closeButton: false,
+            hideProgressBar: true,
+            autoClose: 2000
+        });
+    }
+
     render() {
         return (
             <div className="App">
@@ -82,6 +96,7 @@ class App extends Component {
                 <Header
                     isAdmin={this.state.isAdmin}
                     username={this.state.username}
+                    logout={this.logout.bind(this)}
                 />
 
                 <Switch>
