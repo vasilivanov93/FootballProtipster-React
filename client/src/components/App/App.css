@@ -1,3 +1,5 @@
+@import url('https://netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.css');
+
 *,
 *:before,
 *:after {
@@ -73,4 +75,123 @@ img {
     max-width: 100%;
     height: auto;
     vertical-align: middle;
+}
+
+.Register,
+.Login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100%;
+    color: #fff;
+    background: #222222;
+    background: linear-gradient(to top, #16222A , #3A6073);
+}
+
+.form__inner {
+    background:rgba(58,63,68,0.5);
+    border-radius: 5px;
+    box-shadow: 0 2px 0 0 rgba(0,0,0,0.1);
+    width:450px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form__title {
+    text-align: center;
+    padding: 20px 20px 0;
+    margin:0;
+}
+
+.form__body {
+    color: #ffff;
+    padding:25px 25px 0;
+    margin: 20px 20px 0;
+    border-radius: 3px;
+}
+
+.form__controls {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+input {
+    margin: 0;
+    border: 0;
+    font: inherit;
+    transition: background-color .3s;
+}
+
+.user:before {
+    content: '\f007';
+    font: 14px fontawesome;
+    color: #5b5b5b;
+}
+
+.lock:before {
+    content: '\f023';
+    font: 14px fontawesome;
+    color: #5b5b5b;
+}
+
+.envelope:before {
+    content: '\f0e0';
+    font: 14px fontawesome;
+    color: #5b5b5b;
+}
+
+label, input {
+    border-radius: 0.25rem;
+    padding: 1rem;
+    color: #3A3F44;
+}
+
+label {
+    background-color: #222222;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+}
+
+.form__body input {
+    background-color: #ffffff;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+}
+
+.form__body input:hover,
+.form__body input:focus {
+    background-color: #eeeeee;
+}
+
+.form__actions {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 30px;
+}
+
+.btn {
+    width: 59%;
+    background-color: #00B9BC;
+    color: #eee;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.btn:focus,
+.btn:hover {
+    background-color: #197071;
+}
+
+.hidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
 }
