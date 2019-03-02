@@ -117,7 +117,10 @@ class App extends Component {
                                        state: {from: this.props.location}
                                    }}/>
                                    :
-                                   <Login />
+                                   <Login
+                                       handleSubmit={this.handleSubmit.bind(this)}
+                                       handleChange={this.handleChange}
+                                   />
                            }
                     />
 

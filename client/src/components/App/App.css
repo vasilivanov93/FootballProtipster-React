@@ -81,8 +81,6 @@ img {
 .Login{
     display: flex;
     justify-content: center;
-    align-items: center;
-    min-height: 100%;
     color: #fff;
     background: #222222;
     background: linear-gradient(to top, #16222A , #3A6073);
@@ -106,14 +104,12 @@ img {
 .form__body {
     color: #ffff;
     padding:25px 25px 0;
-    margin: 20px 20px 0;
-    border-radius: 3px;
 }
 
 .form__controls {
     display: flex;
     justify-content: center;
-    margin-bottom: 2rem;
+    margin-bottom: 30px;
 }
 
 input {
@@ -143,7 +139,7 @@ input {
 
 label, input {
     border-radius: 0.25rem;
-    padding: 1rem;
+    padding: 10px;
     color: #3A3F44;
 }
 
@@ -173,7 +169,7 @@ label {
 }
 
 .btn {
-    width: 59%;
+    width: 54%;
     background-color: #00B9BC;
     color: #eee;
     font-weight: bold;

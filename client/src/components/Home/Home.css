@@ -1,8 +1,8 @@
-
-
 .Home .intro {
-    position: relative;
-    height: 750px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 600px;
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -12,18 +12,10 @@
 
 .Home .intro__title {
     font-size: 48px;
-    position: absolute;
-    left: 50%;
-    top: 40%;
-    transform: translateX(-50%);
 }
 
 .Home .intro__entry {
     font-size: 24px;
-    position: absolute;
-    left: 50%;
-    top: 55%;
-    transform: translateX(-50%);
 }
 
 .Home .intro--home {

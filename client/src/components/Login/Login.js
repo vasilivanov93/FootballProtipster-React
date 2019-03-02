@@ -2,10 +2,22 @@ import React, {Component} from 'react';
 import './Login.css';
 
 class Login extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            username: null,
+            password: null,
+            email: null
+        };
+
+        this.handleChange = this.props.handleChange.bind(this);
+    }
+
     render() {
         return (
             <div className="Login">
-                <form className="form">
+                <form className="form" onSubmit={(event) => this.props.handleSubmit(event, this.state, false)}>
                     <div className="form__inner">
                         <div className="form__head">
                             <h2 className="form__title">Login</h2>
@@ -17,7 +29,7 @@ class Login extends Component {
                                     <span className="hidden">Username</span>
                                 </label>
 
-                                <input type="text" id="username" className="field" name="username"
+                                <input type="text" onChange={this.handleChange} id="username" className="field" name="username"
                                        placeholder="Username" required/>
                             </div>
 
@@ -25,7 +37,7 @@ class Login extends Component {
                                 <label className="lock" htmlFor="password"><span
                                     className="hidden">Password</span></label>
 
-                                <input type="password" id="password" className="field" name="password"
+                                <input type="password" onChange={this.handleChange} id="password" className="field" name="password"
                                        placeholder="Password" required/>
                             </div>
                         </div>
