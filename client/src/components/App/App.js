@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import { Route, Switch, Redirect } from "react-router-dom";
+import {toast, ToastContainer} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css';
 
 import Home from '../Home/Home'
 import Header from "../Header/Header";
@@ -13,14 +15,74 @@ class App extends Component {
         super(props);
 
         this.state = {
-            username: null
+            username: null,
+            isAdmin: false
         };
+    }
+
+    componentDidMount() {
+        const localUsername = localStorage.getItem('username');
+        const isAdmin = localStorage.getItem('isAdmin') === 'true';
+
+        if (localUsername) {
+            this.setState({
+                username: localUsername,
+                isAdmin: isAdmin
+            });
+        }
+    }
+
+    handleChange(event) {
+        this.setState({
+            [event.target.name]: event.target.value
+        });
+    }
+
+    handleSubmit(event, data, isSignup) {
+        event.preventDefault();
+
+        fetch('http://localhost:9999/auth/sign' + (isSignup ? 'up' : 'in'), {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+            .then(response => response.json())
+            .then(body => {
+                localStorage.setItem('username', body.username);
+                localStorage.setItem('isAdmin', body.isAdmin);
+
+                if (body.username) {
+                    this.setState({
+                        username: body.username,
+                        isAdmin: body.isAdmin
+                    });
+
+                    toast.success(`Welcome, ${body.username} !`, {
+                        closeButton: false,
+                        hideProgressBar: true,
+                        autoClose: 2000
+                    });
+                } else {
+                    toast.error(`${body.message}`, {
+                        closeButton: false,
+                        hideProgressBar: true,
+                        autoClose: 2000
+                    });
+                }
+            });
     }
 
     render() {
         return (
             <div className="App">
-                <Header />
+                <ToastContainer />
+
+                <Header
+                    isAdmin={this.state.isAdmin}
+                    username={this.state.username}
+                />
 
                 <Switch>
                     <Route exact
@@ -39,7 +101,10 @@ class App extends Component {
                                        state: {from: this.props.location}
                                    }}/>
                                    :
-                                   <Register />
+                                   <Register
+                                       handleSubmit={this.handleSubmit.bind(this)}
+                                       handleChange={this.handleChange}
+                                   />
                            }
                     />
 
