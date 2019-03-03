@@ -78,7 +78,8 @@ img {
 }
 
 .Register,
-.Login{
+.Login,
+.Create {
     display: flex;
     justify-content: center;
     color: #fff;
@@ -122,7 +123,7 @@ input {
     font-size: 14px;
 }
 
-label, input {
+label, input, select {
     border-radius: 0.25rem;
     padding: 10px;
     color: #3A3F44;
@@ -136,14 +137,15 @@ label {
     padding-right: 20px;
 }
 
-.form__body input {
+.form__body input, .form__body select {
     background-color: #ffffff;
     border-bottom-left-radius: 0;
     border-top-left-radius: 0;
 }
 
 .form__body input:hover,
-.form__body input:focus {
+.form__body input:focus,
+.form__body select:focus {
     background-color: #eeeeee;
 }
 
@@ -153,8 +155,12 @@ label {
     padding-bottom: 30px;
 }
 
+select {
+    width: 49%;
+}
+
 .btn {
-    width: 54%;
+    width: 55.114%;
     background-color: #00B9BC;
     color: #eee;
     font-weight: bold;

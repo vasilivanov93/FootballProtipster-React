@@ -8,6 +8,7 @@ import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import Register from '../Register/Register';
 import Login from '../Login/Login';
+import Create from "../Create/Create";
 import './App.css';
 
 class App extends Component {
@@ -136,6 +137,19 @@ class App extends Component {
                                        handleSubmit={this.handleSubmit.bind(this)}
                                        handleChange={this.handleChange}
                                    />
+                           }
+                    />
+
+                    <Route path="/create"
+                           render={() =>
+                               this.state.isAdmin
+                                   ?
+                                   <Create />
+                                   :
+                                   <Redirect to={{
+                                       pathname: '/',
+                                       state: { from: this.props.location }
+                                   }}/>
                            }
                     />
 
