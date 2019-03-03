@@ -29,11 +29,11 @@ class Create extends Component {
                             </div>
 
                             <div className="form__controls">
-                                <label htmlFor="bet">
+                                <label htmlFor="prediction">
                                     <i className="fas fa-futbol"></i>
                                 </label>
 
-                                <input type="text" id="bet" className="field" name="bet" placeholder="Bet" required />
+                                <input type="text" id="prediction" className="field" name="prediction" placeholder="Prediction" required />
                             </div>
 
                             <div className="form__controls">
