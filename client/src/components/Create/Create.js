@@ -2,10 +2,23 @@ import React, {Component} from 'react';
 import './Create.css';
 
 class Create extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            homeTeam: null,
+            awayTeam: null,
+            prediction: null,
+            odd: null
+        };
+
+        this.handleChange = this.props.handleChange.bind(this);
+    }
+
     render() {
         return (
             <div className="Create">
-                <form className="form" >
+                <form className="form" onSubmit={(event) => this.props.handleCreateSubmit(event, this.state)}>
                     <div className="form__inner">
                         <div className="form__head">
                             <h2 className="form__title">Create Bet</h2>
@@ -17,7 +30,7 @@ class Create extends Component {
                                     <i className="fas fa-user"/>
                                 </label>
 
-                                <input type="text" id="homeTeam" className="field" name="homeTeam" placeholder="Home Team" required />
+                                <input type="text" onChange={this.handleChange} id="homeTeam" className="field" name="homeTeam" placeholder="Home Team" required />
                             </div>
 
                             <div className="form__controls">
@@ -25,7 +38,7 @@ class Create extends Component {
                                     <i className="fas fa-user"/>
                                 </label>
 
-                                <input type="text" id="awayTeam" className="field" name="awayTeam" placeholder="Away Team" required />
+                                <input type="text" onChange={this.handleChange} id="awayTeam" className="field" name="awayTeam" placeholder="Away Team" required />
                             </div>
 
                             <div className="form__controls">
@@ -33,15 +46,15 @@ class Create extends Component {
                                     <i className="fas fa-futbol"></i>
                                 </label>
 
-                                <input type="text" id="prediction" className="field" name="prediction" placeholder="Prediction" required />
+                                <input type="text" onChange={this.handleChange} id="prediction" className="field" name="prediction" placeholder="Prediction" required />
                             </div>
 
                             <div className="form__controls">
-                                <label htmlFor="coefficient">
+                                <label htmlFor="odd">
                                     <i className="fas fa-futbol"></i>
                                 </label>
 
-                                <input type="number" id="coefficient" className="field" name="coefficient" placeholder="Coefficient" required />
+                                <input type="text" onChange={this.handleChange} id="odd" className="field" name="odd" placeholder="Odd" required />
                             </div>
                         </div>
 

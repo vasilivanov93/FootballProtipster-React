@@ -75,6 +75,32 @@ class App extends Component {
             });
     }
 
+    handleCreateSubmit(event, data) {
+        event.preventDefault();
+
+        fetch('http://localhost:9999/feed/bet/create', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+            .then(response => response.json())
+            .then(body => {
+                this.setState({
+                    movies: body.movies
+                });
+
+                if (!body.errors) {
+                    toast.success(body.message, {
+                        closeButton: false,
+                        hideProgressBar: true,
+                        autoClose: 2000
+                    });
+                }
+            });
+    }
+
     logout() {
         localStorage.removeItem('username');
         this.setState({
@@ -144,7 +170,10 @@ class App extends Component {
                            render={() =>
                                this.state.isAdmin
                                    ?
-                                   <Create />
+                                   <Create
+                                       handleCreateSubmit={this.handleCreateSubmit.bind(this)}
+                                       handleChange={this.handleChange}
+                                   />
                                    :
                                    <Redirect to={{
                                        pathname: '/',

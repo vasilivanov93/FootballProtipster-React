@@ -8,7 +8,7 @@ const betSchema = new mongoose.Schema({
     odd: { type: mongoose.Schema.Types.String, required: true },
     isFinished: { type: mongoose.Schema.Types.Boolean, default: false, required: true },
     date: {type: mongoose.Schema.Types.Date, default: Date.now, required: true },
-    resultBet: { type: mongoose.Schema.Types.String }
+    resultBet: { type: mongoose.Schema.Types.String, default: 'n/a', required: true }
 });
 
 const Bet = mongoose.model('Bet', betSchema);
