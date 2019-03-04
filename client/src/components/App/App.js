@@ -10,6 +10,7 @@ import Register from '../Register/Register';
 import Login from '../Login/Login';
 import Create from "../Create/Create";
 import './App.css';
+import History from "../History/History";
 
 class App extends Component {
     constructor(props) {
@@ -17,7 +18,9 @@ class App extends Component {
 
         this.state = {
             username: null,
-            isAdmin: false
+            isAdmin: false,
+            bets: [],
+            fetchAllPredictions: null
         };
     }
 
@@ -31,6 +34,8 @@ class App extends Component {
                 isAdmin: isAdmin
             });
         }
+
+        this.fetchAllPredictions();
     }
 
     handleChange(event) {
@@ -87,9 +92,7 @@ class App extends Component {
         })
             .then(response => response.json())
             .then(body => {
-                this.setState({
-                    movies: body.movies
-                });
+                this.fetchAllPredictions();
 
                 if (!body.errors) {
                     toast.success(body.message, {
@@ -98,6 +101,16 @@ class App extends Component {
                         autoClose: 2000
                     });
                 }
+            });
+    }
+
+    fetchAllPredictions() {
+        fetch('http://localhost:9999/feed/history')
+            .then(response => response.json())
+            .then(body => {
+                this.setState({
+                    bets: body.bets
+                });
             });
     }
 
@@ -173,6 +186,23 @@ class App extends Component {
                                    <Create
                                        handleCreateSubmit={this.handleCreateSubmit.bind(this)}
                                        handleChange={this.handleChange}
+                                   />
+                                   :
+                                   <Redirect to={{
+                                       pathname: '/',
+                                       state: { from: this.props.location }
+                                   }}/>
+                           }
+                    />
+
+                    <Route path="/history"
+                           render={() =>
+                               this.state.username
+                                   ?
+                                   <History
+                                       username={this.state.username}
+                                       isAdmin={this.state.isAdmin}
+                                       bets={this.state.bets}
                                    />
                                    :
                                    <Redirect to={{

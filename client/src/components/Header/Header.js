@@ -36,10 +36,12 @@ class Header extends Component {
                                                             <NavLink to="/create">Create</NavLink>
                                                         </li>)
                                                         :
-                                                        <li>
-                                                            <NavLink to="/profile">Profile</NavLink>
-                                                        </li>
+                                                        null
                                                 }
+
+                                                <li>
+                                                    <NavLink to="/history">History</NavLink>
+                                                </li>
 
                                                 <li>
                                                     <Link to="#" onClick={this.props.logout}>Logout</Link>

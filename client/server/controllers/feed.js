@@ -18,5 +18,19 @@ module.exports = {
                 }
                 next(error);
             });
+    },
+    allPredictions: (req, res) => {
+        Bet.find()
+            .then((bets) => {
+                res
+                    .status(200)
+                    .json({message: 'Loading predictions history.', bets});
+            })
+            .catch((error) => {
+                if (!error.statusCode) {
+                    error.statusCode = 500;
+                }
+                next(error);
+            });
     }
 };
