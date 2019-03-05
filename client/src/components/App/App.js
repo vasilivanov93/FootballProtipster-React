@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Route, Switch, Redirect } from "react-router-dom";
+import {Route, Switch, Redirect} from "react-router-dom";
 import {toast, ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
 
@@ -11,6 +11,7 @@ import Login from '../Login/Login';
 import Create from "../Create/Create";
 import History from "../History/History";
 import './App.css';
+import Edit from "../Edit/Edit";
 
 class App extends Component {
     constructor(props) {
@@ -20,7 +21,9 @@ class App extends Component {
             username: null,
             isAdmin: false,
             bets: [],
-            fetchAllPredictions: null
+            fetchAllPredictions: null,
+            bet: [],
+            redirectToReferrer: false
         };
     }
 
@@ -94,6 +97,10 @@ class App extends Component {
             .then(body => {
                 this.fetchAllPredictions();
 
+                this.setState({
+                    redirectToReferrer: true
+                });
+
                 if (!body.errors) {
                     toast.success(body.message, {
                         closeButton: false,
@@ -132,6 +139,42 @@ class App extends Component {
             })
     }
 
+    handleEdit(id) {
+        fetch(`http://localhost:9999/feed/bet/edit/${id}`)
+            .then(response => response.json())
+            .then(body => {
+                this.setState({
+                    bet: body.bet
+                });
+            });
+    }
+
+    handleEditSubmit(id, event, data) {
+        // event.preventDefault();
+
+        fetch(`http://localhost:9999/feed/bet/edit/${id}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+            .then(response => response.json())
+            .then(body => {
+                this.fetchAllPredictions();
+                this.setState({
+                    redirectToReferrer: true
+                });
+
+                toast.success(body.message, {
+                    closeButton: false,
+                    hideProgressBar: true,
+                    autoClose: 2000
+                });
+
+            });
+    }
+
     logout() {
         localStorage.removeItem('username');
         this.setState({
@@ -147,9 +190,20 @@ class App extends Component {
     }
 
     render() {
+        if (this.state.redirectToReferrer) {
+            this.setState({
+                redirectToReferrer: false
+            });
+
+            return <Redirect to={{
+                pathname: '/',
+                state: { from: this.props.location }
+            }}/>;
+        }
+
         return (
             <div className="App">
-                <ToastContainer />
+                <ToastContainer/>
 
                 <Header
                     isAdmin={this.state.isAdmin}
@@ -161,7 +215,7 @@ class App extends Component {
                     <Route exact
                            path="/"
                            render={() =>
-                               <Home username={this.state.username} />
+                               <Home username={this.state.username}/>
                            }
                     />
 
@@ -208,7 +262,7 @@ class App extends Component {
                                    :
                                    <Redirect to={{
                                        pathname: '/',
-                                       state: { from: this.props.location }
+                                       state: {from: this.props.location}
                                    }}/>
                            }
                     />
@@ -222,11 +276,29 @@ class App extends Component {
                                        isAdmin={this.state.isAdmin}
                                        bets={this.state.bets}
                                        handleRemove={this.handleRemove.bind(this)}
+                                       handleEdit={this.handleEdit.bind(this)}
                                    />
                                    :
                                    <Redirect to={{
                                        pathname: '/',
-                                       state: { from: this.props.location }
+                                       state: {from: this.props.location}
+                                   }}/>
+                           }
+                    />
+
+                    <Route path="/edit"
+                           render={() =>
+                               this.state.isAdmin
+                                   ?
+                                   <Edit
+                                       bet={this.state.bet}
+                                       handleEditSubmit={this.handleEditSubmit.bind(this)}
+                                       handleChange={this.handleChange}
+                                   />
+                                   :
+                                   <Redirect to={{
+                                       pathname: '/',
+                                       state: {from: this.props.location}
                                    }}/>
                            }
                     />

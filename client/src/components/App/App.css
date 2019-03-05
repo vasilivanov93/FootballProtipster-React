@@ -79,7 +79,8 @@ img {
 
 .Register,
 .Login,
-.Create {
+.Create,
+.Edit {
     display: flex;
     justify-content: center;
     color: #fff;

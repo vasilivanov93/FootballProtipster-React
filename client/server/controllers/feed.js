@@ -44,5 +44,31 @@ module.exports = {
             }).catch((err) => {
             console.log(err);
         });
+    },
+    editGetBet: (req, res) => {
+        let betId = req.params.id;
+        Bet.findById(betId).then((bet) => {
+            res
+                .status(200)
+                .json({message: 'Loading bet for edit.', bet});
+        }).catch((err) => {
+            console.log(err);
+        });
+    },
+    editBet: async (req, res) => {
+        let editId = req.params.id;
+        let betBody = req.body;
+
+        let bet = await Bet.findById(editId);
+
+        try {
+            bet.result = betBody.result;
+            bet.resultBet = betBody.resultBet;
+            bet.isFinished = true;
+
+            bet.save();
+        } catch (err) {
+            console.log(err);
+        }
     }
 };
