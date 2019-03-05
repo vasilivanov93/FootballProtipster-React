@@ -32,5 +32,17 @@ module.exports = {
                 }
                 next(error);
             });
+    },
+    deleteBet: (req, res) => {
+        let betId = req.params.id;
+
+        Bet.findByIdAndRemove(betId)
+            .then(() => {
+                res
+                    .status(200)
+                    .json({message: 'Bet deleted successfully.'});
+            }).catch((err) => {
+            console.log(err);
+        });
     }
 };

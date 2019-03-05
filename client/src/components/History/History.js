@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Moment from 'react-moment';
+
 import './History.css';
 
 class History extends Component {
@@ -7,7 +8,7 @@ class History extends Component {
         return (
             <div className="shell">
                 <table className="table-container" width="100%" role="table" aria-label="Destinations">
-                    <caption>Day Trip Tours</caption>
+                    <caption>History Predictions</caption>
                     <thead>
                     <tr className="flex-table header" role="rowgroup">
                         <th className="flex-row first" role="columnheader">Date</th>
@@ -32,8 +33,9 @@ class History extends Component {
                             this.props.username
                                 ?
                                 (
-                                    <tr className="flex-table row" role="rowgroup">
-                                        <td className="flex-row first" role="cell"> <Moment format="DD.MM.YYYY">{bets.date}</Moment></td>
+                                    <tr key={bets._id} className="flex-table row" role="rowgroup">
+                                        <td className="flex-row first" role="cell"><Moment
+                                            format="DD.MM.YYYY">{bets.date}</Moment></td>
                                         <td className="flex-row" role="cell">{bets.homeTeam}</td>
                                         <td className="flex-row" role="cell">{bets.result}</td>
                                         <td className="flex-row" role="cell">{bets.awayTeam}</td>
@@ -45,7 +47,7 @@ class History extends Component {
                                                 ?
                                                 <td className="flex-row" role="cell">
                                                     <button>Edit</button>
-                                                    <button>Delete</button>
+                                                    <button onClick={() => this.props.handleRemove(bets._id)}>Delete</button>
                                                 </td>
                                                 :
                                                 null

@@ -9,8 +9,8 @@ import Footer from "../Footer/Footer";
 import Register from '../Register/Register';
 import Login from '../Login/Login';
 import Create from "../Create/Create";
-import './App.css';
 import History from "../History/History";
+import './App.css';
 
 class App extends Component {
     constructor(props) {
@@ -114,6 +114,24 @@ class App extends Component {
             });
     }
 
+    handleRemove(id) {
+        return fetch(`http://localhost:9999/feed/bet/delete/${id}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(response => response.json())
+            .then(body => {
+                this.fetchAllPredictions();
+                toast.success(body.message, {
+                    closeButton: false,
+                    hideProgressBar: true,
+                    autoClose: 2000
+                });
+            })
+    }
+
     logout() {
         localStorage.removeItem('username');
         this.setState({
@@ -203,6 +221,7 @@ class App extends Component {
                                        username={this.state.username}
                                        isAdmin={this.state.isAdmin}
                                        bets={this.state.bets}
+                                       handleRemove={this.handleRemove.bind(this)}
                                    />
                                    :
                                    <Redirect to={{
