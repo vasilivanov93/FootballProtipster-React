@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import Moment from 'react-moment';
 
 import './History.css';
-import {Link} from "react-router-dom";
 
 class History extends Component {
     render() {
@@ -25,13 +24,6 @@ class History extends Component {
                         <th className="flex-row" role="columnheader">Odd</th>
 
                         <th className="flex-row" role="columnheader">Result</th>
-                        {
-                            this.props.isAdmin
-                                ?
-                                <th className="flex-row" role="columnheader">Actions</th>
-                                :
-                                null
-                        }
                     </tr>
                     </thead>
                     <tbody>
@@ -42,6 +34,8 @@ class History extends Component {
                             this.props.username
                                 ?
                                 (
+                                    bets.isFinished
+                                        ?
                                     <tr key={bets._id} className="flex-table row" role="rowgroup">
                                         <td className="flex-row first" role="cell"><Moment
                                             format="DD.MM.YYYY">{bets.date}</Moment></td>
@@ -56,19 +50,9 @@ class History extends Component {
                                         <td className="flex-row" role="cell">{bets.odd}</td>
 
                                         <td className="flex-row" role="cell">{bets.resultBet}</td>
-                                        {
-                                            this.props.isAdmin
-                                                ?
-                                                <td className="flex-row" role="cell">
-                                                    <Link to={`/edit/${bets._id}`} onClick={() => this.props.handleEdit(bets._id)}>Edit</Link>
-
-                                                    <Link to={`/delete/${bets._id}`} onClick={() => this.props.handleEdit(bets._id)}>Delete</Link>
-                                                </td>
-                                                :
-                                                null
-                                        }
-
                                     </tr>
+                                        :
+                                        null
                                 )
                                 :
                                 null

@@ -21,6 +21,7 @@ module.exports = {
     },
     allPredictions: (req, res) => {
         Bet.find()
+            .sort({date: 'descending'})
             .then((bets) => {
                 res
                     .status(200)

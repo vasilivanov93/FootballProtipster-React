@@ -162,13 +162,26 @@ select {
 
 .btn {
     width: 55.114%;
-    background-color: #00B9BC;
     color: #eee;
     font-weight: bold;
     text-transform: uppercase;
 }
 
+.btn--register,
+.btn--login,
+.btn--edit {
+    background-color: #00B9BC;
+}
+
+.btn--create {
+    background: rgb(28, 184, 65);
+}
+.btn--delete {
+    background-color: rgb(202, 60, 60);
+}
+
 .btn:focus,
 .btn:hover {
-    background-color: #197071;
+    background-image: linear-gradient(transparent, rgba(0,0,0,.05) 40%, rgba(0,0,0,.1));
 }
+

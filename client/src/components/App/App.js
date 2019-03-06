@@ -13,6 +13,7 @@ import History from "../History/History";
 import './App.css';
 import Edit from "../Edit/Edit";
 import Delete from "../Delete/Delete";
+import HistoryAdmin from "../HistoryAdmin/HistoryAdmin";
 
 class App extends Component {
     constructor(props) {
@@ -280,12 +281,20 @@ class App extends Component {
                            render={() =>
                                this.state.username
                                    ?
-                                   <History
-                                       username={this.state.username}
-                                       isAdmin={this.state.isAdmin}
-                                       bets={this.state.bets}
-                                       handleEdit={this.handleEdit.bind(this)}
-                                   />
+                                   this.state.isAdmin ?
+                                       <HistoryAdmin
+                                           username={this.state.username}
+                                           isAdmin={this.state.isAdmin}
+                                           bets={this.state.bets}
+                                           handleEdit={this.handleEdit.bind(this)}
+                                       />
+                                       :
+                                       <History
+                                           username={this.state.username}
+                                           isAdmin={this.state.isAdmin}
+                                           bets={this.state.bets}
+                                           handleEdit={this.handleEdit.bind(this)}
+                                       />
                                    :
                                    <Redirect to={{
                                        pathname: '/',
