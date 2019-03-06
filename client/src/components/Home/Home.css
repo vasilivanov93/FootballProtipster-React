@@ -19,5 +19,32 @@
 }
 
 .Home .intro--home {
+    width: 100%;
     background-image: linear-gradient(rgba(0,0,0,.3), rgba(0,0,0,.3)), url("../../images/intro--home.jpg");
+}
+
+.Home {
+    display: flex;
+    justify-content: space-between;
+}
+
+.Home .section__head { padding: 30px 0; }
+
+.Home .section__body { padding: 0 5px;}
+
+.Home .section--about { flex: 1 0 80%; }
+
+.Home .section--bookmakers {
+    flex: 1 0 20%;
+    text-align: center;
+}
+.Home .section--bookmakers .section__head {
+    font-style: italic;
+    color: #9de245;
+    text-shadow: 0.08em 0.08em 0.08em rgba(41,59,143,0.7);
+    text-transform: capitalize;
+}
+
+.Home .section--bookmakers .img-container {
+    padding-bottom: 20px;
 }

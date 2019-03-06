@@ -1,5 +1,6 @@
 .table-container {
     border-collapse: collapse;
+    margin-bottom: 50px;
 }
 
 caption {

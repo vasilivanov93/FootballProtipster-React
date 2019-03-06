@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Link, NavLink} from "react-router-dom";
 
 import './Header.css'
+import logo from '../../images/logo.png'
 
 class Header extends Component {
     render() {
@@ -11,12 +12,23 @@ class Header extends Component {
                     <div className="header__inner">
                         <Link to="/" className="logo">
                             <div className="img-container">
-                                <img alt="logo" />
+                                <img src={logo} alt="logo" />
                             </div>
                         </Link>
 
                         <nav className="nav">
                             <ul>
+                                {
+                                    this.props.username
+                                    ?
+                                    (
+                                        <li>
+                                            <Link to="#">Welcome {this.props.username}!</Link>
+                                        </li>
+                                    )
+                                    :
+                                    null
+                                }
                                 <li>
                                     <NavLink exact to="/">Home</NavLink>
                                 </li>
@@ -25,10 +37,6 @@ class Header extends Component {
                                         ?
                                         (
                                             <span>
-                                                <li>
-                                                    <Link to="#">Welcome {this.props.username}!</Link>
-                                                </li>
-
                                                 {
                                                     this.props.isAdmin
                                                         ?

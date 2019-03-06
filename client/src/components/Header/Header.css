@@ -1,4 +1,5 @@
 .Header {
+    padding: 10px 0;
     background: #293b8f;
 }
 
@@ -9,14 +10,14 @@
     align-items: center;
 }
 
-.Header .logo img {
-    width: 50px;
-    content: url('../../images/logo.png');
+.Header .logo .img-container {
+    max-width: 65%;
 }
 
 .Header .nav {
-    color: #fff;
+    font-size: 18px;
     font-weight: 600;
+    color: #fff;
 }
 
 .Header .nav ul {
