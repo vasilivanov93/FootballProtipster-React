@@ -62,7 +62,7 @@ class History extends Component {
                                                 <td className="flex-row" role="cell">
                                                     <Link to={`/edit/${bets._id}`} onClick={() => this.props.handleEdit(bets._id)}>Edit</Link>
 
-                                                    <Link to="#" onClick={() => this.props.handleRemove(bets._id)}>Delete</Link>
+                                                    <Link to={`/delete/${bets._id}`} onClick={() => this.props.handleEdit(bets._id)}>Delete</Link>
                                                 </td>
                                                 :
                                                 null

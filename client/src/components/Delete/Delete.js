@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import './Edit.css';
+import './Delete.css';
 
-class Edit extends Component {
+class Delete extends Component {
     constructor(props) {
         super(props);
 
@@ -13,16 +13,14 @@ class Edit extends Component {
             odd: this.props.bet.odd,
             resultBet: this.props.bet.resultBet,
         };
-
-        this.handleChange = this.props.handleChange.bind(this);
     }
     render() {
         return (
             <div className="Edit">
-                <form className="form" onSubmit={(event) => this.props.handleEditSubmit(this.props.bet._id, event, this.state)}>
+                <form className="form" onSubmit={(event) => this.props.handleRemove(this.props.bet._id, event)}>
                     <div className="form__inner">
                         <div className="form__head">
-                            <h2 className="form__title">Edit Bet</h2>
+                            <h2 className="form__title">Delete Bet</h2>
                         </div>
 
                         <div className="form__body">
@@ -31,7 +29,7 @@ class Edit extends Component {
                                     <i className="fas fa-user"/>
                                 </label>
 
-                                <input type="text" onChange={this.handleChange} id="homeTeam" className="field"
+                                <input type="text" id="homeTeam" className="field"
                                        name="homeTeam" placeholder="Home Team" value={this.props.bet.homeTeam}
                                        disabled/>
                             </div>
@@ -41,9 +39,9 @@ class Edit extends Component {
                                     <i className="fas fa-futbol"/>
                                 </label>
 
-                                <input type="text" onChange={this.handleChange} id="result" className="field"
-                                       name="result" placeholder="? - ?"
-                                       required/>
+                                <input type="text" id="result" className="field"
+                                       name="result" placeholder="? - ?" value={this.props.bet.result}
+                                       disabled/>
                             </div>
 
                             <div className="form__controls">
@@ -51,7 +49,7 @@ class Edit extends Component {
                                     <i className="fas fa-user"/>
                                 </label>
 
-                                <input type="text" onChange={this.handleChange} id="awayTeam" className="field"
+                                <input type="text" id="awayTeam" className="field"
                                        name="awayTeam" placeholder="Away Team" value={this.props.bet.awayTeam}
                                        disabled/>
                             </div>
@@ -61,7 +59,7 @@ class Edit extends Component {
                                     <i className="fas fa-futbol"/>
                                 </label>
 
-                                <input type="text" onChange={this.handleChange} id="prediction" className="field"
+                                <input type="text" id="prediction" className="field"
                                        name="prediction" placeholder="Prediction" value={this.props.bet.prediction}
                                        disabled/>
                             </div>
@@ -71,7 +69,7 @@ class Edit extends Component {
                                     <i className="fas fa-futbol"/>
                                 </label>
 
-                                <input type="text" onChange={this.handleChange} id="odd" className="field" name="odd"
+                                <input type="text" id="odd" className="field" name="odd"
                                        placeholder="Odd" value={this.props.bet.odd} disabled/>
                             </div>
 
@@ -80,14 +78,14 @@ class Edit extends Component {
                                     <i className="fas fa-futbol"/>
                                 </label>
 
-                                <input type="text" onChange={this.handleChange} id="resultBet" className="field"
-                                       name="resultBet" placeholder="Win/Lose"
-                                       required/>
+                                <input type="text" id="resultBet" className="field"
+                                       name="resultBet" placeholder="Win/Lose" value={this.props.bet.resultBet}
+                                       disabled/>
                             </div>
                         </div>
 
                         <div className="form__actions">
-                            <input type="submit" value="Edit Bet" name="editBet" className="btn btn--edit"/>
+                            <input type="submit" value="Delete Bet" name="deleteBet" className="btn btn--delete"/>
                         </div>
                     </div>
                 </form>
@@ -96,4 +94,4 @@ class Edit extends Component {
     }
 }
 
-export default Edit;
+export default Delete;

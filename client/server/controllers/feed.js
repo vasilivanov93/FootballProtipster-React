@@ -50,7 +50,7 @@ module.exports = {
         Bet.findById(betId).then((bet) => {
             res
                 .status(200)
-                .json({message: 'Loading bet for edit.', bet});
+                .json({message: 'Loading bet for Edit or Remove.', bet});
         }).catch((err) => {
             console.log(err);
         });

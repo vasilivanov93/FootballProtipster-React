@@ -12,6 +12,7 @@ import Create from "../Create/Create";
 import History from "../History/History";
 import './App.css';
 import Edit from "../Edit/Edit";
+import Delete from "../Delete/Delete";
 
 class App extends Component {
     constructor(props) {
@@ -116,12 +117,14 @@ class App extends Component {
             .then(response => response.json())
             .then(body => {
                 this.setState({
-                    bets: body.bets
+                    bets: body.bets,
+                    redirectToReferrer: true
                 });
             });
     }
 
-    handleRemove(id) {
+    handleRemove(id, event) {
+        event.preventDefault();
         return fetch(`http://localhost:9999/feed/bet/delete/${id}`, {
             method: 'POST',
             headers: {
@@ -146,13 +149,19 @@ class App extends Component {
                 this.setState({
                     bet: body.bet
                 });
+
+                toast.success(body.message, {
+                    closeButton: false,
+                    hideProgressBar: true,
+                    autoClose: 2000
+                });
             });
     }
 
     handleEditSubmit(id, event, data) {
         // event.preventDefault();
 
-        fetch(`http://localhost:9999/feed/bet/edit/${id}`, {
+        return fetch(`http://localhost:9999/feed/bet/edit/${id}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -196,7 +205,7 @@ class App extends Component {
             });
 
             return <Redirect to={{
-                pathname: '/',
+                pathname: '/history',
                 state: { from: this.props.location }
             }}/>;
         }
@@ -275,7 +284,6 @@ class App extends Component {
                                        username={this.state.username}
                                        isAdmin={this.state.isAdmin}
                                        bets={this.state.bets}
-                                       handleRemove={this.handleRemove.bind(this)}
                                        handleEdit={this.handleEdit.bind(this)}
                                    />
                                    :
@@ -294,6 +302,22 @@ class App extends Component {
                                        bet={this.state.bet}
                                        handleEditSubmit={this.handleEditSubmit.bind(this)}
                                        handleChange={this.handleChange}
+                                   />
+                                   :
+                                   <Redirect to={{
+                                       pathname: '/',
+                                       state: {from: this.props.location}
+                                   }}/>
+                           }
+                    />
+
+                    <Route path="/delete"
+                           render={() =>
+                               this.state.isAdmin
+                                   ?
+                                   <Delete
+                                       bet={this.state.bet}
+                                       handleRemove={this.handleRemove.bind(this)}
                                    />
                                    :
                                    <Redirect to={{
