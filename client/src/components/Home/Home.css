@@ -106,6 +106,15 @@
     padding-bottom: 80px;
 }
 
+.Home .grid .img-container {
+    transition: filter .5s ease-in-out;
+    filter: sepia(100%);
+}
+
+.Home .grid .img-container:hover {
+    filter: sepia(0%);
+}
+
 .Home .result,
 .Home .prediction,
 .HOme .odd {

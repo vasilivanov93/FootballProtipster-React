@@ -215,7 +215,7 @@ class Home extends Component {
                                                 <div className="grid">
                                                     <div className="division">
                                                         <div className="img-container">
-                                                            <img src={championsLeague} alt="championsLeague"/>
+                                                            <img src={premierLeague} alt="championsLeague"/>
                                                         </div>
                                                     </div>
 
@@ -227,7 +227,7 @@ class Home extends Component {
 
                                                     <div className="division">
                                                         <div className="img-container">
-                                                            <img src={premierLeague} alt="championsLeague"/>
+                                                            <img src={championsLeague} alt="championsLeague"/>
                                                         </div>
                                                     </div>
 
