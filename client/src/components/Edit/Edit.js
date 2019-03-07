@@ -6,12 +6,12 @@ class Edit extends Component {
         super(props);
 
         this.state = {
-            homeTeam: this.props.bet.homeTeam,
-            result: this.props.bet.result,
-            awayTeam: this.props.bet.awayTeam,
-            prediction: this.props.bet.prediction,
-            odd: this.props.bet.odd,
-            resultBet: this.props.bet.resultBet,
+            homeTeam: null,
+            result: null,
+            awayTeam: null,
+            prediction: null,
+            odd: null,
+            resultBet: null,
         };
 
         this.handleChange = this.props.handleChange.bind(this);

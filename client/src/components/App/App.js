@@ -23,6 +23,7 @@ class App extends Component {
             username: null,
             isAdmin: false,
             bets: [],
+            betsHome: [],
             fetchAllPredictions: null,
             bet: [],
             redirectToReferrer: false
@@ -39,6 +40,15 @@ class App extends Component {
                 isAdmin: isAdmin
             });
         }
+
+        fetch('http://localhost:9999/feed/home')
+            .then(response => response.json())
+            .then(body => {
+                this.setState({
+                    betsHome: body.betsHome,
+                    redirectToReferrer: true
+                });
+            });
 
         this.fetchAllPredictions();
     }
@@ -225,7 +235,7 @@ class App extends Component {
                     <Route exact
                            path="/"
                            render={() =>
-                               <Home username={this.state.username}/>
+                               <Home username={this.state.username} betsHome={this.state.betsHome} />
                            }
                     />
 

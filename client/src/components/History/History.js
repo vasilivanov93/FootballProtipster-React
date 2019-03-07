@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
 import Moment from 'react-moment';
 
-import './History.css';
-
 class History extends Component {
     render() {
         return (
@@ -58,7 +56,7 @@ class History extends Component {
                                 null
                         )
                         :
-                        (<h1>Not bets in DB.</h1>)
+                        null
                     }
                     </tbody>
                 </table>

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from "react-router-dom";
-import './Home.css'
+import Moment from "react-moment";
 
 import bet365 from '../../images/bet365.gif';
 import bwin from '../../images/bwin.gif';
@@ -9,6 +9,7 @@ import betfair from '../../images/betfair.gif';
 import unibet from '../../images/unibet-sport.gif';
 import pinnacle from '../../images/pinnacle.gif'
 
+import './Home.css'
 
 class Home extends Component {
     render() {
@@ -44,6 +45,64 @@ class Home extends Component {
                                                 </p>
                                             </div>
                                         </div>
+
+                                        <table className="table-container" width="100%" role="table" aria-label="Destinations">
+                                            <caption>Last 5 Predictions</caption>
+                                            <thead>
+                                            <tr className="flex-table header" role="rowgroup">
+                                                <th className="flex-row first" role="columnheader">Date</th>
+
+                                                <th className="flex-row" role="columnheader">Home</th>
+
+                                                <th className="flex-row" role="columnheader">Match</th>
+
+                                                <th className="flex-row" role="columnheader">Away</th>
+
+                                                <th className="flex-row" role="columnheader">Prediction</th>
+
+                                                <th className="flex-row" role="columnheader">Odd</th>
+
+                                                <th className="flex-row" role="columnheader">Result</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            {
+                                                this.props.betsHome
+                                                    ?
+                                                    this.props.betsHome.map(bets =>
+                                                        this.props.username
+                                                            ?
+                                                            (
+                                                                bets.isFinished
+                                                                    ?
+                                                                    <tr key={bets._id} className="flex-table row" role="rowgroup">
+                                                                        <td className="flex-row first" role="cell"><Moment
+                                                                            format="DD.MM.YYYY">{bets.date}</Moment></td>
+                                                                        <td className="flex-row" role="cell">{bets.homeTeam}</td>
+
+                                                                        <td className="flex-row" role="cell">{bets.result}</td>
+
+                                                                        <td className="flex-row" role="cell">{bets.awayTeam}</td>
+
+                                                                        <td className="flex-row" role="cell">{bets.prediction}</td>
+
+                                                                        <td className="flex-row" role="cell">{bets.odd}</td>
+
+                                                                        <td className="flex-row" role="cell">{bets.resultBet}</td>
+                                                                    </tr>
+                                                                    :
+                                                                    null
+                                                            )
+                                                            :
+                                                            null
+                                                    )
+                                                    :
+                                                    null
+                                            }
+                                            </tbody>
+                                        </table>
+
+                                        <p className="viewAll">View all <Link to="/history">Predictions</Link></p>
                                     </section>
 
                                     <section className="section section--bookmakers">
@@ -53,9 +112,9 @@ class Home extends Component {
 
                                         <div className="section__body">
                                             <Link target="_blank" to="https://www.bet365.com/#/HO/">
-                                               <div className="img-container">
+                                                <div className="img-container">
                                                     <img src={bet365} alt="bet365"/>
-                                               </div>
+                                                </div>
                                             </Link>
 
                                             <Link target="_blank" to="https://sports.bwin.com/bg/sports">
@@ -82,7 +141,8 @@ class Home extends Component {
                                                 </div>
                                             </Link>
 
-                                            <Link target="_blank" to="https://www.soprm6502.com/en/?refer=XAFF2626&aup=True">
+                                            <Link target="_blank"
+                                                  to="https://www.soprm6502.com/en/?refer=XAFF2626&aup=True">
                                                 <div className="img-container">
                                                     <img src={pinnacle} alt="pinnacle"/>
                                                 </div>

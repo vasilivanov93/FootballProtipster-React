@@ -34,6 +34,22 @@ module.exports = {
                 next(error);
             });
     },
+    lastFivePredictions: (req, res) => {
+        Bet.find()
+            .sort({date: 'descending'})
+            .limit(5)
+            .then((betsHome) => {
+                res
+                    .status(200)
+                    .json({message: 'Loading predictions history.', betsHome});
+            })
+            .catch((error) => {
+                if (!error.statusCode) {
+                    error.statusCode = 500;
+                }
+                next(error);
+            });
+    },
     deleteBet: (req, res) => {
         let betId = req.params.id;
 
