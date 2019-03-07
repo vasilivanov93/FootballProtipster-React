@@ -31,6 +31,17 @@
 .Header .nav ul li {
     margin: 0 17px;
 }
+
+.Header .nav ul>li:first-child a {
+    color: #a7a2a2;
+    font-style: italic;
+    cursor: context-menu;
+}
+
+.Header .nav ul>li:first-child:hover a {
+    color: #a7a2a2;
+}
+
 .Header .nav ul > span {
     display: flex;
 }

@@ -1,11 +1,9 @@
-.Home .intro {
+.Home .intro__inner {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 600px;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
+    flex-direction: column;
+    min-height: calc(100vh - 69px);
     text-align: center;
     color: #fff;
 }
@@ -19,12 +17,15 @@
 }
 
 .Home .intro--home {
-    width: 100%;
     background-image: linear-gradient(rgba(0,0,0,.3), rgba(0,0,0,.3)), url("../../images/intro--home.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
 }
 
-.Home {
+.Home .home__inner {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
 }
 
@@ -40,13 +41,19 @@
     text-align: center;
 }
 
-.Home .section--about { flex: 1 0 80%; }
+.Home .section--about {
+    flex: 1 0 80%;
+    text-align: justify;
+    padding-right: 20px;
+}
 
 .Home .section--bookmakers {
     flex: 1 0 20%;
     text-align: center;
+    padding-left: 20px;
 }
-.Home .section--bookmakers .section__head {
+.Home .section--bookmakers .section__head,
+.Home .daily__title{
     font-style: italic;
     color: #9de245;
     text-shadow: 0.08em 0.08em 0.08em rgba(41,59,143,0.7);
@@ -65,4 +72,43 @@
     padding: 5px 0;
     font-style: italic;
     text-align: right;
+}
+
+.Home .dailyPrediction {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.Home .daily__title {
+    flex: 1 0 100%;
+    text-align: center;
+}
+
+.Home .homeTeam,
+.Home .awayTeam,
+.Home .prediction{
+    text-align: center;
+}
+
+.Home .section--divisions {
+    flex: 1 0 100%;
+}
+
+.Home .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-gap: 20px;
+    align-items: stretch;
+    list-style-type: none;
+    text-align: center;
+    padding-bottom: 80px;
+}
+
+.Home .result,
+.Home .prediction,
+.HOme .odd {
+    font-size: 26px;
+    font-weight: 700;
 }

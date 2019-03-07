@@ -35,7 +35,7 @@ module.exports = {
             });
     },
     lastFivePredictions: (req, res) => {
-        Bet.find()
+        Bet.find({isFinished: true})
             .sort({date: 'descending'})
             .limit(5)
             .then((betsHome) => {

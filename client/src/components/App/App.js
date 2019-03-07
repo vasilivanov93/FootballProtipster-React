@@ -235,7 +235,9 @@ class App extends Component {
                     <Route exact
                            path="/"
                            render={() =>
-                               <Home username={this.state.username} betsHome={this.state.betsHome} />
+                               <Home username={this.state.username}
+                                     bets={this.state.bets}
+                                     betsHome={this.state.betsHome} />
                            }
                     />
 

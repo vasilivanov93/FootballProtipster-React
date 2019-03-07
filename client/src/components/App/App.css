@@ -83,8 +83,10 @@ img {
 .Edit {
     display: flex;
     justify-content: center;
+    align-items: center;
     color: #fff;
     background: #222222;
+    min-height: calc(100vh - 69px);
     background: linear-gradient(to top, #16222A , #3A6073);
 }
 
@@ -170,7 +172,7 @@ select {
 .btn--register,
 .btn--login,
 .btn--edit {
-    background-color: #00B9BC;
+    background-color: #293B8F;
 }
 
 .btn--create {
@@ -188,7 +190,6 @@ select {
 
 .table-container {
     border-collapse: collapse;
-
 }
 
 caption {

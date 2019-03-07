@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import './Delete.css';
 
 class Delete extends Component {
     constructor(props) {
