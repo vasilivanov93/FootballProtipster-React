@@ -14,6 +14,8 @@ import './App.css';
 import Edit from "../Edit/Edit";
 import Delete from "../Delete/Delete";
 import HistoryAdmin from "../HistoryAdmin/HistoryAdmin";
+import SideNavigation from "../SideNavigation/SideNavigation";
+import Backdrop from "../Backdrop/Backdrop";
 
 class App extends Component {
     constructor(props) {
@@ -26,7 +28,8 @@ class App extends Component {
             betsHome: [],
             fetchAllPredictions: null,
             bet: [],
-            redirectToReferrer: false
+            redirectToReferrer: false,
+            sideNavigationOpen: false
         };
     }
 
@@ -209,7 +212,25 @@ class App extends Component {
         });
     }
 
+    toggleClickHandler = () => {
+        this.setState((prevState) => {
+            return {sideNavigationOpen: !prevState.sideNavigationOpen}
+        })
+    };
+
+    backdropClickHandler = () => {
+        this.setState({
+            sideNavigationOpen: false
+        })
+    }
+
     render() {
+        let backdrop;
+
+        if (this.state.sideNavigationOpen) {
+            backdrop = <Backdrop click={this.backdropClickHandler}/>
+        }
+
         if (this.state.redirectToReferrer) {
             this.setState({
                 redirectToReferrer: false
@@ -217,19 +238,27 @@ class App extends Component {
 
             return <Redirect to={{
                 pathname: '/history',
-                state: { from: this.props.location }
+                state: {from: this.props.location}
             }}/>;
         }
 
         return (
-            <div className="App">
+            <div className="App" style={{height: '100%'}}>
                 <ToastContainer/>
 
                 <Header
+                    toggleClickHandler={this.toggleClickHandler}
                     isAdmin={this.state.isAdmin}
                     username={this.state.username}
                     logout={this.logout.bind(this)}
                 />
+
+                <SideNavigation show={this.state.sideNavigationOpen}
+                                isAdmin={this.state.isAdmin}
+                                username={this.state.username}
+                                logout={this.logout.bind(this)}/>
+
+                {backdrop}
 
                 <Switch>
                     <Route exact
@@ -237,7 +266,7 @@ class App extends Component {
                            render={() =>
                                <Home username={this.state.username}
                                      bets={this.state.bets}
-                                     betsHome={this.state.betsHome} />
+                                     betsHome={this.state.betsHome}/>
                            }
                     />
 

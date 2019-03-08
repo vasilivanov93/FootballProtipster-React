@@ -52,3 +52,20 @@
 .Header .nav ul li a:hover, .Header .nav ul li a.active {
     color: #7ce228;
 }
+
+@media (max-width: 768px) {
+    .nav {
+        display: none;
+    }
+
+    .Header p {
+        display: none;
+    }
+
+}
+
+@media (min-width: 769px) {
+    .navigation__toggle-button {
+        display: none;
+    }
+}

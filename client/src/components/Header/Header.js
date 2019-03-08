@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import {Link, NavLink} from "react-router-dom";
 
-import './Header.css'
-import logo from '../../images/logo.png'
+import './Header.css';
+import ToggleButton from '../SideNavigation/ToggleButton'
+import logo from '../../images/logo.png';
 
 class Header extends Component {
     render() {
@@ -10,6 +11,10 @@ class Header extends Component {
             <header className="Header">
                 <div className="shell">
                     <div className="header__inner">
+                        <div className="navigation__toggle-button">
+                            < ToggleButton click={this.props.toggleClickHandler}/>
+                        </div>
+
                         <Link to="/" className="logo">
                             <div className="img-container">
                                 <img src={logo} alt="logo" />
