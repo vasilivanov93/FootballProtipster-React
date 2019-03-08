@@ -32,20 +32,17 @@
     margin: 0 17px;
 }
 
-.Header .nav ul>li:first-child a {
+.Header p {
+    padding-bottom: 0;
+    font-size: 19px;
+    order: 2;
     color: #a7a2a2;
     font-style: italic;
-    cursor: context-menu;
-}
-
-.Header .nav ul>li:first-child:hover a {
-    color: #a7a2a2;
 }
 
 .Header .nav ul > span {
     display: flex;
 }
-
 
 .Header .nav ul li a {
     color: #fff;

@@ -16,19 +16,19 @@ class Header extends Component {
                             </div>
                         </Link>
 
+                        {
+                            this.props.username
+                                ?
+                                (
+
+                                    <p>Welcome {this.props.username}!</p>
+                                )
+                                :
+                                null
+                        }
+
                         <nav className="nav">
                             <ul>
-                                {
-                                    this.props.username
-                                    ?
-                                    (
-                                        <li>
-                                            <Link to="#">Welcome {this.props.username}!</Link>
-                                        </li>
-                                    )
-                                    :
-                                    null
-                                }
                                 <li>
                                     <NavLink exact to="/">Home</NavLink>
                                 </li>
