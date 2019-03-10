@@ -62,7 +62,7 @@ class Home extends Component {
                                                             (
                                                                 !bets.isFinished
                                                                     ?
-                                                                    <div className="dailyPrediction">
+                                                                    <div key={bets._id} className="dailyPrediction">
                                                                         <div className="homeTeam">
                                                                             <h4 className="name">{bets.homeTeam}</h4>
 
@@ -173,36 +173,35 @@ class Home extends Component {
                                             </div>
 
                                             <div className="section__body">
-                                                <Link target="_blank" to="https://www.bet365.com/#/HO/">
+                                                <a target="_blank" rel="noopener noreferrer" href="https://www.bet365.com/#/HO/">
                                                     <div className="img-container">
                                                         <img src={bet365} alt="bet365"/>
                                                     </div>
-                                                </Link>
+                                                </a>
 
-                                                <Link target="_blank" to="https://www.betfair.com">
+                                                <a target="_blank" rel="noopener noreferrer" href="https://www.betfair.com">
                                                     <div className="img-container">
                                                         <img src={betfair} alt="betfair"/>
                                                     </div>
-                                                </Link>
+                                                </a>
 
-                                                <Link target="_blank" to="https://m.skybet.com/">
+                                                <a target="_blank" rel="noopener noreferrer" href="https://m.skybet.com/">
                                                     <div className="img-container">
                                                         <img src={skybet} alt="skybet"/>
                                                     </div>
-                                                </Link>
+                                                </a>
 
-                                                <Link target="_blank" to="https://www.unibet.eu/s">
+                                                <a target="_blank" rel="noopener noreferrer" href="https://www.unibet.eu/s">
                                                     <div className="img-container">
                                                         <img src={unibet} alt="unibet-sport"/>
                                                     </div>
-                                                </Link>
+                                                </a>
 
-                                                <Link target="_blank"
-                                                      to="https://www.soprm6502.com/en/?refer=XAFF2626&aup=True">
+                                                <a target="_blank" rel="noopener noreferrer" href="https://www.soprm6502.com/en/?refer=XAFF2626&aup=True">
                                                     <div className="img-container">
                                                         <img src={pinnacle} alt="pinnacle"/>
                                                     </div>
-                                                </Link>
+                                                </a>
                                             </div>
                                         </section>
 

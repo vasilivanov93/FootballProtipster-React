@@ -14,6 +14,7 @@ class SideNavigation extends Component {
                     <li>
                         <NavLink exact to="/">Home</NavLink>
                     </li>
+
                     {
                         this.props.username
                             ?
@@ -30,25 +31,25 @@ class SideNavigation extends Component {
                             }
 
                                     <li>
-                                <NavLink to="/history">History</NavLink>
-                            </li>
+                                        <NavLink to="/history">History</NavLink>
+                                    </li>
 
-                            <li>
-                                <Link to="#" onClick={this.props.logout}>Logout</Link>
-                            </li>
-                        </span>
+                                    <li>
+                                        <Link to="#" onClick={this.props.logout}>Logout</Link>
+                                    </li>
+                                </span>
                             )
                             :
                             (
                                 <span>
-                            <li>
-                                <NavLink to="/register">Register</NavLink>
-                            </li>
+                                    <li>
+                                        <NavLink to="/register">Register</NavLink>
+                                    </li>
 
-                            <li>
-                                <NavLink to="/login">Login</NavLink>
-                            </li>
-                        </span>
+                                    <li>
+                                        <NavLink to="/login">Login</NavLink>
+                                    </li>
+                                </span>
                             )
                     }
                 </ul>

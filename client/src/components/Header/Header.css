@@ -28,8 +28,22 @@
     list-style-type: none;
 }
 
+.Header .nav ul > span {
+    display: flex;
+}
+
 .Header .nav ul li {
     margin: 0 17px;
+}
+
+.Header .nav ul li a {
+    color: #fff;
+    transition: color .5s ease;
+}
+
+.Header .nav ul li a:hover,
+.Header .nav ul li a.active {
+    color: #7ce228;
 }
 
 .Header p {
@@ -38,19 +52,6 @@
     order: 2;
     color: #a7a2a2;
     font-style: italic;
-}
-
-.Header .nav ul > span {
-    display: flex;
-}
-
-.Header .nav ul li a {
-    color: #fff;
-    transition: color .5s ease;
-}
-
-.Header .nav ul li a:hover, .Header .nav ul li a.active {
-    color: #7ce228;
 }
 
 @media (max-width: 768px) {

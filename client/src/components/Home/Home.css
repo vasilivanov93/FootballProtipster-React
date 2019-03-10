@@ -17,7 +17,7 @@
 }
 
 .Home .intro--home {
-    background-image: linear-gradient(rgba(0,0,0,.3), rgba(0,0,0,.3)), url("../../images/intro--home.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)), url("../../images/intro--home.jpg");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -29,14 +29,18 @@
     justify-content: space-between;
 }
 
-.Home .section__head { padding: 30px 0; }
+.Home .section__head {
+    padding: 30px 0;
+}
 
-.Home .section__body { padding: 0 5px; }
+.Home .section__body {
+    padding: 0 5px;
+}
 
 .Home .section__title {
     font-style: italic;
     color: #9de245;
-    text-shadow: 0.08em 0.08em 0.08em rgba(41,59,143,0.7);
+    text-shadow: 0.08em 0.08em 0.08em rgba(41, 59, 143, 0.7);
     text-transform: capitalize;
     text-align: center;
 }
@@ -52,11 +56,12 @@
     text-align: center;
     padding-left: 20px;
 }
+
 .Home .section--bookmakers .section__head,
 .Home .daily__title {
     font-style: italic;
     color: #9de245;
-    text-shadow: 0.08em 0.08em 0.08em rgba(41,59,143,0.7);
+    text-shadow: 0.08em 0.08em 0.08em rgba(41, 59, 143, 0.7);
     text-transform: capitalize;
 }
 
@@ -88,7 +93,7 @@
 
 .Home .homeTeam,
 .Home .awayTeam,
-.Home .prediction{
+.Home .prediction {
     text-align: center;
 }
 
@@ -120,4 +125,16 @@
 .HOme .odd {
     font-size: 26px;
     font-weight: 700;
+}
+
+@media (max-width: 769px) {
+    .Home .section--about {
+        padding-right: 0;
+    }
+
+    .Home .section--bookmakers {
+        display: none;
+        padding-left: 0;
+    }
+
 }

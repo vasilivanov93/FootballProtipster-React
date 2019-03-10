@@ -63,8 +63,6 @@ li {
     list-style-position: inside;
 }
 
-
-
 a {
     text-decoration: none;
 }
@@ -84,8 +82,13 @@ img {
     align-items: center;
     color: #fff;
     background: #222222;
-    min-height: calc(100vh - 69px);
+    min-height: calc(100vh - 123px);
     background: linear-gradient(to top, #16222A , #3A6073);
+}
+
+.Edit .form {
+    padding-top: 30px;
+    padding-bottom: 80px;
 }
 
 .Login,
@@ -110,6 +113,7 @@ img {
     background-position: center center;
     background-size: cover;
 }
+
 .form__inner {
     background:rgba(11, 12, 12, 0.8);
     border-radius: 5px;

@@ -243,7 +243,7 @@ class App extends Component {
         }
 
         return (
-            <div className="App" style={{height: '100%'}}>
+            <div className="App">
                 <ToastContainer/>
 
                 <Header
