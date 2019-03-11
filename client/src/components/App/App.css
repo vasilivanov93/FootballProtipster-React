@@ -244,7 +244,7 @@ th {
     text-align: center;
 }
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 768px) {
     th, td {
         width: auto;
         display: block;
@@ -261,6 +261,18 @@ th {
         border-left: solid 1px #d9d9d9;
         border-right: solid 1px #d9d9d9;
         border-bottom: solid 1px #d9d9d9;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .form__inner {
+        width: 350px;
+    }
+}
+
+@media only screen and (max-width: 360px) {
+    .form__inner {
+        width: 300px;
     }
 }
 

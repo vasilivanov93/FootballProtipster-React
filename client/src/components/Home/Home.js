@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Link} from "react-router-dom";
 import Moment from "react-moment";
+import ReactContactForm from 'react-mail-form';
 
 import bet365 from '../../images/bet365.gif';
 import skybet from '../../images/skybet.gif';
@@ -173,35 +174,62 @@ class Home extends Component {
                                             </div>
 
                                             <div className="section__body">
-                                                <a target="_blank" rel="noopener noreferrer" href="https://www.bet365.com/#/HO/">
+                                                <a target="_blank" rel="noopener noreferrer"
+                                                   href="https://www.bet365.com/#/HO/">
                                                     <div className="img-container">
                                                         <img src={bet365} alt="bet365"/>
                                                     </div>
                                                 </a>
 
-                                                <a target="_blank" rel="noopener noreferrer" href="https://www.betfair.com">
+                                                <a target="_blank" rel="noopener noreferrer"
+                                                   href="https://www.betfair.com">
                                                     <div className="img-container">
                                                         <img src={betfair} alt="betfair"/>
                                                     </div>
                                                 </a>
 
-                                                <a target="_blank" rel="noopener noreferrer" href="https://m.skybet.com/">
+                                                <a target="_blank" rel="noopener noreferrer"
+                                                   href="https://m.skybet.com/">
                                                     <div className="img-container">
                                                         <img src={skybet} alt="skybet"/>
                                                     </div>
                                                 </a>
 
-                                                <a target="_blank" rel="noopener noreferrer" href="https://www.unibet.eu/s">
+                                                <a target="_blank" rel="noopener noreferrer"
+                                                   href="https://www.unibet.eu/s">
                                                     <div className="img-container">
                                                         <img src={unibet} alt="unibet-sport"/>
                                                     </div>
                                                 </a>
 
-                                                <a target="_blank" rel="noopener noreferrer" href="https://www.soprm6502.com/en/?refer=XAFF2626&aup=True">
+                                                <a target="_blank" rel="noopener noreferrer"
+                                                   href="https://www.soprm6502.com/en/?refer=XAFF2626&aup=True">
                                                     <div className="img-container">
                                                         <img src={pinnacle} alt="pinnacle"/>
                                                     </div>
                                                 </a>
+                                            </div>
+                                        </section>
+
+                                        <section className="section section--contact">
+                                            <div className="section__head">
+                                                <h2 className="section__title"> Customers Support</h2>
+                                            </div>
+
+                                            <div className="section__body">
+                                                <div className="section__entry">
+                                                    <p>The team of Football Prediction is available 24/7 and awaits your
+                                                        questions and queries about our services and football
+                                                        predictions. We will endeavor to respond to every inquiry in the
+                                                        shortest possible time with individual attention because every
+                                                        customer is important to us.</p>
+
+                                                    <p><strong>Important note:</strong> Write your email address
+                                                        correctly so our team can get in touch with you.</p>
+                                                </div>
+
+                                                <ReactContactForm className="contactForm"
+                                                                  to="footballprotipster123@gmail.com"/>
                                             </div>
                                         </section>
 
@@ -271,16 +299,16 @@ class Home extends Component {
                             <div className="intro intro--home">
                                 <div className="shell">
                                     <div className="intro__inner">
-                                    <h1 className="intro__title">
-                                        Welcome to FootballProtipster
-                                    </h1>
+                                        <h1 className="intro__title">
+                                            Welcome to FootballProtipster
+                                        </h1>
 
-                                    <div className="intro__entry">
-                                        You like to watch football and want to make money. Sign up in our site and
-                                        immerse
-                                        yourself in the world of football bets.
+                                        <div className="intro__entry">
+                                            You like to watch football and want to make money. Sign up in our site and
+                                            immerse
+                                            yourself in the world of football bets.
+                                        </div>
                                     </div>
-                                </div>
                                 </div>
                             </div>
                         )

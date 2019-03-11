@@ -42,7 +42,7 @@ class Create extends Component {
 
                             <div className="form__controls">
                                 <label htmlFor="prediction">
-                                    <i className="fas fa-futbol"></i>
+                                    <i className="fas fa-futbol"/>
                                 </label>
 
                                 <input type="text" onChange={this.handleChange} id="prediction" className="field" name="prediction" placeholder="Prediction" required />
@@ -50,7 +50,7 @@ class Create extends Component {
 
                             <div className="form__controls">
                                 <label htmlFor="odd">
-                                    <i className="fas fa-futbol"></i>
+                                    <i className="fas fa-futbol"/>
                                 </label>
 
                                 <input type="text" onChange={this.handleChange} id="odd" className="field" name="odd" placeholder="Odd" required />

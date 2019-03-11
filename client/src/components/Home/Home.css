@@ -122,9 +122,48 @@
 
 .Home .result,
 .Home .prediction,
-.HOme .odd {
+.Home .odd {
     font-size: 26px;
     font-weight: 700;
+}
+.section--contact .section__body {
+    display: flex;
+    justify-content: space-between;
+}
+
+.section--contact .section__entry {
+    flex: 1 0 50%;
+    padding-right: 15px;
+}
+
+.section--contact .contactForm {
+    flex: 1 0 50%;
+    display: flex;
+    flex-direction: column;
+    padding-left: 15px;
+}
+
+.contactForm input[type=email],
+.contactForm textarea {
+    width: 100%;
+    padding: 13px;
+    margin-bottom: 25px;
+    border-radius: 5px;
+    border: 1px solid #293b8f;
+    box-shadow: inset -1px 2px 11px 2px rgba(157,226,69,0.5);
+    resize: none;
+}
+
+.contactForm a {
+    background: linear-gradient(to right,#bff07a 0%,#9ee245 23%,#92c748 50%,#9ed94c 73%,#bff07a 100%);
+    color: #fff;
+    font-size: 20px;
+    font-weight: 800;
+    border-radius: 5px;
+    padding: 13px;
+    border: 1px solid #293b8f;
+    text-align: center;
+    cursor: pointer;
 }
 
 @media (max-width: 769px) {

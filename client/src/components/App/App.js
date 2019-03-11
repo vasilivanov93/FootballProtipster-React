@@ -139,6 +139,7 @@ class App extends Component {
 
     handleRemove(id, event) {
         event.preventDefault();
+
         return fetch(`http://localhost:9999/feed/bet/delete/${id}`, {
             method: 'POST',
             headers: {
@@ -222,7 +223,7 @@ class App extends Component {
         this.setState({
             sideNavigationOpen: false
         })
-    }
+    };
 
     render() {
         let backdrop;
@@ -266,7 +267,9 @@ class App extends Component {
                            render={() =>
                                <Home username={this.state.username}
                                      bets={this.state.bets}
-                                     betsHome={this.state.betsHome}/>
+                                     betsHome={this.state.betsHome}
+                                     handleChange={this.handleChange.bind(this)}
+                               />
                            }
                     />
 

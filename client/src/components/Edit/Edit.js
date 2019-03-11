@@ -10,7 +10,7 @@ class Edit extends Component {
             awayTeam: null,
             prediction: null,
             odd: null,
-            resultBet: null,
+            resultBet: null
         };
 
         this.handleChange = this.props.handleChange.bind(this);
@@ -31,7 +31,7 @@ class Edit extends Component {
                                 </label>
 
                                 <input type="text" onChange={this.handleChange} id="homeTeam" className="field"
-                                       name="homeTeam" placeholder="Home Team" value={this.props.bet.homeTeam}
+                                       name="homeTeam" placeholder="Home Team" defaultValue={this.props.bet.homeTeam}
                                        disabled/>
                             </div>
 
@@ -41,7 +41,7 @@ class Edit extends Component {
                                 </label>
 
                                 <input type="text" onChange={this.handleChange} id="result" className="field"
-                                       name="result" placeholder="? - ?"
+                                       name="result" autoComplete="off" placeholder="? - ?"
                                        required/>
                             </div>
 
@@ -51,7 +51,7 @@ class Edit extends Component {
                                 </label>
 
                                 <input type="text" onChange={this.handleChange} id="awayTeam" className="field"
-                                       name="awayTeam" placeholder="Away Team" value={this.props.bet.awayTeam}
+                                       name="awayTeam" placeholder="Away Team" defaultValue={this.props.bet.awayTeam}
                                        disabled/>
                             </div>
 
@@ -71,7 +71,7 @@ class Edit extends Component {
                                 </label>
 
                                 <input type="text" onChange={this.handleChange} id="odd" className="field" name="odd"
-                                       placeholder="Odd" value={this.props.bet.odd} disabled/>
+                                       placeholder="Odd" defaultValue={this.props.bet.odd} disabled/>
                             </div>
 
                             <div className="form__controls">
@@ -80,7 +80,7 @@ class Edit extends Component {
                                 </label>
 
                                 <input type="text" onChange={this.handleChange} id="resultBet" className="field"
-                                       name="resultBet" placeholder="Win/Lose"
+                                       name="resultBet" autoComplete="off" placeholder="Win/Lose"
                                        required/>
                             </div>
                         </div>
