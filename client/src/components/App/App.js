@@ -172,7 +172,7 @@ class App extends Component {
     }
 
     handleEditSubmit(id, event, data) {
-        // event.preventDefault();
+        event.preventDefault();
 
         fetch(`http://localhost:9999/feed/bet/edit/${id}`, {
             method: 'POST',

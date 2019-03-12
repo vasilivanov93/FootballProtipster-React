@@ -58,34 +58,52 @@ module.exports = {
                 res
                     .status(200)
                     .json({message: 'Bet deleted successfully.'});
-            }).catch((err) => {
-            console.log(err);
-        });
+            })
+            .catch((error) => {
+                if (!error.statusCode) {
+                    error.statusCode = 500;
+                }
+                next(error);
+            });
     },
     editGetBet: (req, res) => {
         let betId = req.params.id;
-        Bet.findById(betId).then((bet) => {
-            res
-                .status(200)
-                .json({message: 'Loading bet for Edit or Remove.', bet});
-        }).catch((err) => {
-            console.log(err);
-        });
+        Bet.findById(betId)
+            .then((bet) => {
+                res
+                    .status(200)
+                    .json({message: 'Loading bet for Edit or Remove.', bet});
+            })
+            .catch((error) => {
+                if (!error.statusCode) {
+                    error.statusCode = 500;
+                }
+                next(error);
+            });
     },
-    editBet: async (req, res) => {
+    editBet: (req, res) => {
         let editId = req.params.id;
         let betBody = req.body;
 
-        let bet = await Bet.findById(editId);
+        Bet.findById(editId)
+            .then((bet) => {
+                bet.result = betBody.result;
+                bet.resultBet = betBody.resultBet;
+                bet.isFinished = true;
 
-        try {
-            bet.result = betBody.result;
-            bet.resultBet = betBody.resultBet;
-            bet.isFinished = true;
+                res.status(200)
+                    .json({
+                        message: 'Bet edited successfully!',
+                        bet
+                    });
 
-            bet.save();
-        } catch (err) {
-            console.log(err);
-        }
+                return bet.save();
+            })
+            .catch((error) => {
+                if (!error.statusCode) {
+                    error.statusCode = 500;
+                }
+                next(error);
+            });
     }
 };
