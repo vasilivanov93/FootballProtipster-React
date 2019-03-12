@@ -223,9 +223,6 @@ class Home extends Component {
                                                         predictions. We will endeavor to respond to every inquiry in the
                                                         shortest possible time with individual attention because every
                                                         customer is important to us.</p>
-
-                                                    <p><strong>Important note:</strong> Write your email address
-                                                        correctly so our team can get in touch with you.</p>
                                                 </div>
 
                                                 <ReactContactForm className="contactForm"

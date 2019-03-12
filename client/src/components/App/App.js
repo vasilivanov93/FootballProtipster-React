@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
-import {Route, Switch, Redirect} from "react-router-dom";
-import {toast, ToastContainer} from 'react-toastify';
+import React, { Component } from 'react';
+import { Route, Switch, Redirect, withRouter } from "react-router-dom";
+import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
 
 import Home from '../Home/Home'
@@ -28,7 +28,6 @@ class App extends Component {
             betsHome: [],
             fetchAllPredictions: null,
             bet: [],
-            redirectToReferrer: false,
             sideNavigationOpen: false
         };
     }
@@ -48,8 +47,7 @@ class App extends Component {
             .then(response => response.json())
             .then(body => {
                 this.setState({
-                    betsHome: body.betsHome,
-                    redirectToReferrer: true
+                    betsHome: body.betsHome
                 });
             });
 
@@ -112,9 +110,7 @@ class App extends Component {
             .then(body => {
                 this.fetchAllPredictions();
 
-                this.setState({
-                    redirectToReferrer: true
-                });
+                this.props.history.push('/history');
 
                 if (!body.errors) {
                     toast.success(body.message, {
@@ -131,8 +127,7 @@ class App extends Component {
             .then(response => response.json())
             .then(body => {
                 this.setState({
-                    bets: body.bets,
-                    redirectToReferrer: true
+                    bets: body.bets
                 });
             });
     }
@@ -149,6 +144,9 @@ class App extends Component {
             .then(response => response.json())
             .then(body => {
                 this.fetchAllPredictions();
+
+                this.props.history.push('/history');
+
                 toast.success(body.message, {
                     closeButton: false,
                     hideProgressBar: true,
@@ -176,19 +174,18 @@ class App extends Component {
     handleEditSubmit(id, event, data) {
         // event.preventDefault();
 
-        return fetch(`http://localhost:9999/feed/bet/edit/${id}`, {
+        fetch(`http://localhost:9999/feed/bet/edit/${id}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(data)
+            body: JSON.stringify(data),
         })
             .then(response => response.json())
             .then(body => {
                 this.fetchAllPredictions();
-                this.setState({
-                    redirectToReferrer: true
-                });
+
+                this.props.history.push('/history');
 
                 toast.success(body.message, {
                     closeButton: false,
@@ -230,17 +227,6 @@ class App extends Component {
 
         if (this.state.sideNavigationOpen) {
             backdrop = <Backdrop click={this.backdropClickHandler}/>
-        }
-
-        if (this.state.redirectToReferrer) {
-            this.setState({
-                redirectToReferrer: false
-            });
-
-            return <Redirect to={{
-                pathname: '/history',
-                state: {from: this.props.location}
-            }}/>;
         }
 
         return (
@@ -389,4 +375,4 @@ class App extends Component {
     }
 }
 
-export default App;
+export default withRouter(App);
