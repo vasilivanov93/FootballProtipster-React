@@ -5,16 +5,28 @@ class Edit extends Component {
         super(props);
 
         this.state = {
-            homeTeam: null,
-            result: null,
-            awayTeam: null,
-            prediction: null,
-            odd: null,
-            resultBet: null
+            homeTeam: props.bet.homeTeam || '',
+            result: props.bet.result || '',
+            awayTeam: props.bet.awayTeam ||  '',
+            prediction: props.bet.prediction ||'',
+            odd: props.bet.odd || '',
+            resultBet: props.bet.resultBet || ''
         };
 
         this.handleChange = this.props.handleChange.bind(this);
     }
+
+    componentWillReceiveProps(nextProps, prevState) {
+        this.setState({
+            homeTeam: nextProps.bet.homeTeam,
+            result: nextProps.bet.result,
+            awayTeam: nextProps.bet.awayTeam,
+            prediction: nextProps.bet.prediction,
+            odd: nextProps.bet.odd,
+            resultBet: nextProps.bet.resultBet,
+        })
+    }
+
     render() {
         return (
             <div className="Edit">
@@ -31,7 +43,7 @@ class Edit extends Component {
                                 </label>
 
                                 <input type="text" onChange={this.handleChange} id="homeTeam" className="field"
-                                       name="homeTeam" placeholder="Home Team" defaultValue={this.props.bet.homeTeam}
+                                       name="homeTeam" placeholder="Home Team" value={this.state.homeTeam}
                                        disabled/>
                             </div>
 
@@ -41,7 +53,7 @@ class Edit extends Component {
                                 </label>
 
                                 <input type="text" onChange={this.handleChange} id="result" className="field"
-                                       name="result" autoComplete="off" placeholder="? - ?"
+                                       name="result" autoComplete="off" placeholder="? - ?" value={this.state.result}
                                        required/>
                             </div>
 
@@ -51,7 +63,7 @@ class Edit extends Component {
                                 </label>
 
                                 <input type="text" onChange={this.handleChange} id="awayTeam" className="field"
-                                       name="awayTeam" placeholder="Away Team" defaultValue={this.props.bet.awayTeam}
+                                       name="awayTeam" placeholder="Away Team" value={this.state.awayTeam}
                                        disabled/>
                             </div>
 
@@ -61,7 +73,7 @@ class Edit extends Component {
                                 </label>
 
                                 <input type="text" onChange={this.handleChange} id="prediction" className="field"
-                                       name="prediction" placeholder="Prediction" value={this.props.bet.prediction}
+                                       name="prediction" placeholder="Prediction" value={this.state.prediction}
                                        disabled/>
                             </div>
 
@@ -71,7 +83,7 @@ class Edit extends Component {
                                 </label>
 
                                 <input type="text" onChange={this.handleChange} id="odd" className="field" name="odd"
-                                       placeholder="Odd" defaultValue={this.props.bet.odd} disabled/>
+                                       placeholder="Odd" value={this.state.odd} disabled/>
                             </div>
 
                             <div className="form__controls">
@@ -80,7 +92,7 @@ class Edit extends Component {
                                 </label>
 
                                 <input type="text" onChange={this.handleChange} id="resultBet" className="field"
-                                       name="resultBet" autoComplete="off" placeholder="Win/Lose"
+                                       name="resultBet" autoComplete="off" placeholder="Win/Lose" value={this.state.resultBet}
                                        required/>
                             </div>
                         </div>
