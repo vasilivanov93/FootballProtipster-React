@@ -5,14 +5,26 @@ class Delete extends Component {
         super(props);
 
         this.state = {
-            homeTeam: this.props.bet.homeTeam,
-            result: this.props.bet.result,
-            awayTeam: this.props.bet.awayTeam,
-            prediction: this.props.bet.prediction,
-            odd: this.props.bet.odd,
-            resultBet: this.props.bet.resultBet,
+            homeTeam: props.bet.homeTeam || '',
+            result: props.bet.result || '',
+            awayTeam: props.bet.awayTeam ||  '',
+            prediction: props.bet.prediction ||'',
+            odd: props.bet.odd || '',
+            resultBet: props.bet.resultBet || ''
         };
     }
+
+    componentWillReceiveProps(nextProps, prevState) {
+        this.setState({
+            homeTeam: nextProps.bet.homeTeam,
+            result: nextProps.bet.result,
+            awayTeam: nextProps.bet.awayTeam,
+            prediction: nextProps.bet.prediction,
+            odd: nextProps.bet.odd,
+            resultBet: nextProps.bet.resultBet,
+        })
+    }
+
     render() {
         return (
             <div className="Edit">
@@ -29,7 +41,7 @@ class Delete extends Component {
                                 </label>
 
                                 <input type="text" id="homeTeam" className="field"
-                                       name="homeTeam" placeholder="Home Team" value={this.props.bet.homeTeam}
+                                       name="homeTeam" placeholder="Home Team" value={this.state.homeTeam}
                                        disabled/>
                             </div>
 
@@ -39,7 +51,7 @@ class Delete extends Component {
                                 </label>
 
                                 <input type="text" id="result" className="field"
-                                       name="result" placeholder="? - ?" value={this.props.bet.result}
+                                       name="result" placeholder="? - ?" value={this.state.result}
                                        disabled/>
                             </div>
 
@@ -49,7 +61,7 @@ class Delete extends Component {
                                 </label>
 
                                 <input type="text" id="awayTeam" className="field"
-                                       name="awayTeam" placeholder="Away Team" value={this.props.bet.awayTeam}
+                                       name="awayTeam" placeholder="Away Team" value={this.state.awayTeam}
                                        disabled/>
                             </div>
 
@@ -59,7 +71,7 @@ class Delete extends Component {
                                 </label>
 
                                 <input type="text" id="prediction" className="field"
-                                       name="prediction" placeholder="Prediction" value={this.props.bet.prediction}
+                                       name="prediction" placeholder="Prediction" value={this.state.prediction}
                                        disabled/>
                             </div>
 
@@ -69,7 +81,7 @@ class Delete extends Component {
                                 </label>
 
                                 <input type="text" id="odd" className="field" name="odd"
-                                       placeholder="Odd" value={this.props.bet.odd} disabled/>
+                                       placeholder="Odd" value={this.state.odd} disabled/>
                             </div>
 
                             <div className="form__controls">
@@ -78,7 +90,7 @@ class Delete extends Component {
                                 </label>
 
                                 <input type="text" id="resultBet" className="field"
-                                       name="resultBet" placeholder="Win/Lose" value={this.props.bet.resultBet}
+                                       name="resultBet" placeholder="Win/Lose" value={this.state.resultBet}
                                        disabled/>
                             </div>
                         </div>
