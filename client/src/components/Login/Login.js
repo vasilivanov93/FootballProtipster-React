@@ -29,8 +29,7 @@ class Login extends Component {
                                     <i className="fas fa-user"/>
                                 </label>
 
-                                <input type="text" onChange={this.handleChange} id="username" className="field" name="username"
-                                       placeholder="Username" required/>
+                                <input type="text" onChange={this.handleChange} id="username" className="field" name="username" placeholder="Username" autoComplete="off" required/>
                             </div>
 
                             <div className="form__controls">
@@ -38,8 +37,7 @@ class Login extends Component {
                                     <i className="fas fa-lock"/>
                                 </label>
 
-                                <input type="password" onChange={this.handleChange} id="password" className="field" name="password"
-                                       placeholder="Password" required/>
+                                <input type="password" onChange={this.handleChange} id="password" className="field" name="password" placeholder="Password" autoComplete="off" required/>
                             </div>
                         </div>
 

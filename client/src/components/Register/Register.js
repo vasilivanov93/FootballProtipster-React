@@ -29,7 +29,7 @@ class Register extends Component {
                                     <i className="fas fa-user"/>
                                 </label>
 
-                                <input type="text" onChange={this.handleChange} id="username" className="field" name="username" placeholder="Username" required />
+                                <input type="text" onChange={this.handleChange} id="username" className="field" name="username" placeholder="Username" autoComplete="off" required />
                             </div>
 
                             <div className="form__controls">
@@ -37,8 +37,7 @@ class Register extends Component {
                                     <i className="fas fa-envelope"/>
                                 </label>
 
-                                <input type="email" onChange={this.handleChange} id="email" className="field" name="email"
-                                       placeholder="Email" required />
+                                <input type="email" onChange={this.handleChange} id="email" className="field" name="email" placeholder="Email" autoComplete="off" required />
                             </div>
 
                             <div className="form__controls">
@@ -46,8 +45,7 @@ class Register extends Component {
                                     <i className="fas fa-lock"/>
                                 </label>
 
-                                <input type="password" onChange={this.handleChange} id="password" className="field" name="password"
-                                       placeholder="Password" required />
+                                <input type="password" onChange={this.handleChange} id="password" className="field" name="password" placeholder="Password" autoComplete="off" required />
                             </div>
 
                             <div className="form__controls">
@@ -55,8 +53,7 @@ class Register extends Component {
                                     <i className="fas fa-lock"/>
                                 </label>
 
-                                <input type="password" onChange={this.handleChange} id="repeatPassword" className="field" name="repeatPassword"
-                                       placeholder="Repeat Password" required />
+                                <input type="password" onChange={this.handleChange} id="repeatPassword" className="field" name="repeatPassword" placeholder="Repeat Password" autoComplete="off" required />
                             </div>
                         </div>
 

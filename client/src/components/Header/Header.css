@@ -5,7 +5,7 @@
 
 .Header .header__inner {
     display: flex;
-    flex-wrap: wrap;
+
     justify-content: space-between;
     align-items: center;
 }
@@ -63,6 +63,9 @@
         display: none;
     }
 
+    .Header a {
+        padding-left: 20px;
+    }
 }
 
 @media (min-width: 769px) {

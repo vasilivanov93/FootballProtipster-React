@@ -29,7 +29,7 @@ class Create extends Component {
                                     <i className="fas fa-user"/>
                                 </label>
 
-                                <input type="text" onChange={this.handleChange} id="homeTeam" className="field" name="homeTeam" placeholder="Home Team" required />
+                                <input type="text" onChange={this.handleChange} id="homeTeam" className="field" name="homeTeam" placeholder="Home Team" autoComplete="off" required />
                             </div>
 
                             <div className="form__controls">
@@ -37,7 +37,7 @@ class Create extends Component {
                                     <i className="fas fa-user"/>
                                 </label>
 
-                                <input type="text" onChange={this.handleChange} id="awayTeam" className="field" name="awayTeam" placeholder="Away Team" required />
+                                <input type="text" onChange={this.handleChange} id="awayTeam" className="field" name="awayTeam" placeholder="Away Team" autoComplete="off" required />
                             </div>
 
                             <div className="form__controls">
@@ -45,7 +45,7 @@ class Create extends Component {
                                     <i className="fas fa-futbol"/>
                                 </label>
 
-                                <input type="text" onChange={this.handleChange} id="prediction" className="field" name="prediction" placeholder="Prediction" required />
+                                <input type="text" onChange={this.handleChange} id="prediction" className="field" name="prediction" placeholder="Prediction" autoComplete="off" required />
                             </div>
 
                             <div className="form__controls">
@@ -53,7 +53,7 @@ class Create extends Component {
                                     <i className="fas fa-futbol"/>
                                 </label>
 
-                                <input type="text" onChange={this.handleChange} id="odd" className="field" name="odd" placeholder="Odd" required />
+                                <input type="text" onChange={this.handleChange} id="odd" className="field" name="odd" placeholder="Odd" autoComplete="off" required />
                             </div>
                         </div>
 
