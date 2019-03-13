@@ -22,7 +22,7 @@ class Delete extends Component {
             prediction: nextProps.bet.prediction,
             odd: nextProps.bet.odd,
             resultBet: nextProps.bet.resultBet,
-        })
+        });
     }
 
     render() {
@@ -40,9 +40,7 @@ class Delete extends Component {
                                     <i className="fas fa-user"/>
                                 </label>
 
-                                <input type="text" id="homeTeam" className="field"
-                                       name="homeTeam" placeholder="Home Team" value={this.state.homeTeam}
-                                       disabled/>
+                                <input type="text" id="homeTeam" className="field" name="homeTeam" placeholder="Home Team" value={this.state.homeTeam} disabled/>
                             </div>
 
                             <div className="form__controls">
@@ -50,9 +48,7 @@ class Delete extends Component {
                                     <i className="fas fa-futbol"/>
                                 </label>
 
-                                <input type="text" id="result" className="field"
-                                       name="result" placeholder="? - ?" value={this.state.result}
-                                       disabled/>
+                                <input type="text" id="result" className="field" name="result" placeholder="? - ?" value={this.state.result} disabled/>
                             </div>
 
                             <div className="form__controls">
@@ -60,9 +56,7 @@ class Delete extends Component {
                                     <i className="fas fa-user"/>
                                 </label>
 
-                                <input type="text" id="awayTeam" className="field"
-                                       name="awayTeam" placeholder="Away Team" value={this.state.awayTeam}
-                                       disabled/>
+                                <input type="text" id="awayTeam" className="field" name="awayTeam" placeholder="Away Team" value={this.state.awayTeam} disabled/>
                             </div>
 
                             <div className="form__controls">
@@ -70,9 +64,7 @@ class Delete extends Component {
                                     <i className="fas fa-futbol"/>
                                 </label>
 
-                                <input type="text" id="prediction" className="field"
-                                       name="prediction" placeholder="Prediction" value={this.state.prediction}
-                                       disabled/>
+                                <input type="text" id="prediction" className="field" name="prediction" placeholder="Prediction" value={this.state.prediction} disabled/>
                             </div>
 
                             <div className="form__controls">
@@ -80,8 +72,7 @@ class Delete extends Component {
                                     <i className="fas fa-futbol"/>
                                 </label>
 
-                                <input type="text" id="odd" className="field" name="odd"
-                                       placeholder="Odd" value={this.state.odd} disabled/>
+                                <input type="text" id="odd" className="field" name="odd" placeholder="Odd" value={this.state.odd} disabled/>
                             </div>
 
                             <div className="form__controls">
@@ -89,9 +80,7 @@ class Delete extends Component {
                                     <i className="fas fa-futbol"/>
                                 </label>
 
-                                <input type="text" id="resultBet" className="field"
-                                       name="resultBet" placeholder="Win/Lose" value={this.state.resultBet}
-                                       disabled/>
+                                <input type="text" id="resultBet" className="field" name="resultBet" placeholder="Win/Lose" value={this.state.resultBet} disabled/>
                             </div>
                         </div>
 

@@ -27,77 +27,105 @@ class Home extends Component {
             <div className="Home">
                 {
                     this.props.username
-                        ?
-                        (
-                            <div className="Home">
-                                <div className="shell">
-                                    <div className="home__inner">
-                                        <section className="section section--about">
-                                            <div className="section__head">
-                                                <h2 className="section__title">About Football ProTipster</h2>
+                    ?
+                    (
+                        <div className="Home">
+                            <div className="shell">
+                                <div className="home__inner">
+                                    <section className="section section--about">
+                                        <div className="section__head">
+                                            <h2 className="section__title">About Football ProTipster</h2>
+                                        </div>
+
+                                        <div className="section__body">
+                                            <div className="section__entry">
+                                                <p>
+                                                    Football Predictions is a site that provides its customers with
+                                                    specially selected daily predictions about the most popular
+                                                    sport in the world. Our football tipsters give advice that
+                                                    everyone can increase their profits. Football predictions give
+                                                    you the chance to offer bets with high odds and a high rate of
+                                                    success achieved with in-depth analysis of each football match.
+                                                </p>
+
+                                                <p>As our name suggests, we offer the most popular bets on the
+                                                    betting market: x1 or ×2 Betting Tips, Asian Handicap Tips, Over
+                                                    and Under Tips, Corner Tips and more football predictions. Enjoy
+                                                    the opportunity while watching your favorite game of winning
+                                                    with us.
+                                                </p>
                                             </div>
 
-                                            <div className="section__body">
-                                                <div className="section__entry">
-                                                    <p>
-                                                        Football Predictions is a site that provides its customers with
-                                                        specially selected daily predictions about the most popular
-                                                        sport in the world. Our football tipsters give advice that
-                                                        everyone can increase their profits. Football predictions give
-                                                        you the chance to offer bets with high odds and a high rate of
-                                                        success achieved with in-depth analysis of each football match.
-                                                    </p>
+                                            <div className="section__entry">
+                                                <h2 className="daily__title">Daily Predictions</h2>
+                                                {
+                                                    this.props.bets.length >= 1
+                                                    ?
+                                                    this.props.bets.map(bets =>
+                                                        (
+                                                            !bets.isFinished
+                                                            ?
+                                                            <div key={bets._id} className="dailyPrediction">
+                                                                <div className="homeTeam">
+                                                                    <h4 className="name">{bets.homeTeam}</h4>
 
-                                                    <p>As our name suggests, we offer the most popular bets on the
-                                                        betting market: x1 or ×2 Betting Tips, Asian Handicap Tips, Over
-                                                        and Under Tips, Corner Tips and more football predictions. Enjoy
-                                                        the opportunity while watching your favorite game of winning
-                                                        with us.
-                                                    </p>
-                                                </div>
-
-                                                <div className="section__entry">
-                                                    <h2 className="daily__title">Daily Predictions</h2>
-                                                    {
-                                                        this.props.bets.map(bets =>
-                                                            (
-                                                                !bets.isFinished
-                                                                    ?
-                                                                    <div key={bets._id} className="dailyPrediction">
-                                                                        <div className="homeTeam">
-                                                                            <h4 className="name">{bets.homeTeam}</h4>
-
-                                                                            <div className="img-container">
-                                                                                <img src={daily} alt="dailyPrediction"/>
-                                                                            </div>
-                                                                        </div>
-
-                                                                        <div className="prediction">
-                                                                            <p className="result">{bets.result}</p>
-                                                                            <p className="prediction">Prediction: {bets.prediction}</p>
-                                                                            <p className="odd">Odd: {bets.odd}</p>
-                                                                        </div>
-
-                                                                        <div className="awayTeam">
-                                                                            <h4 className="name">{bets.awayTeam}</h4>
-
-                                                                            <div className="img-container">
-                                                                                <img src={daily} alt="dailyPrediction"/>
-                                                                            </div>
-                                                                        </div>
+                                                                    <div className="img-container">
+                                                                        <img src={daily} alt="dailyPrediction"/>
                                                                     </div>
-                                                                    :
-                                                                    null
-                                                            )
-                                                        )
-                                                    }
-                                                </div>
+                                                                </div>
 
-                                                <div className="section__entry">
-                                                    <table className="table-container" width="100%" role="table"
-                                                           aria-label="Destinations">
-                                                        <caption>Last 5 Predictions</caption>
-                                                        <thead>
+                                                                <div className="prediction">
+                                                                    <p className="date"><Moment format="DD.MM.YYYY">{bets.date}</Moment></p>
+
+                                                                    <p className="result">{bets.result}</p>
+
+                                                                    <p className="prediction">Prediction: {bets.prediction}</p>
+
+                                                                    <p className="odd">Odd: {bets.odd}</p>
+                                                                </div>
+
+                                                                <div className="awayTeam">
+                                                                    <h4 className="name">{bets.awayTeam}</h4>
+
+                                                                    <div className="img-container">
+                                                                        <img src={daily} alt="dailyPrediction"/>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            :
+                                                            null
+                                                        )
+                                                    )
+                                                        :
+                                                        ( <div className="dailyPrediction">
+                                                            <div className="homeTeam">
+                                                                <div className="img-container">
+                                                                    <img src={daily} alt="dailyPrediction"/>
+                                                                </div>
+                                                            </div>
+
+                                                            <div className="prediction">
+                                                                <p className="result">? - ?</p>
+
+                                                                <p className="prediction">Prediction: n/a</p>
+
+                                                                <p className="odd">Odd: n/a</p>
+                                                            </div>
+
+                                                            <div className="awayTeam">
+                                                                <div className="img-container">
+                                                                    <img src={daily} alt="dailyPrediction"/>
+                                                                </div>
+                                                            </div>
+                                                        </div>)
+                                                }
+                                            </div>
+
+                                            <div className="section__entry">
+                                                <table className="table-container" width="100%" role="table" aria-label="Destinations">
+                                                    <caption>Last 5 Predictions</caption>
+
+                                                    <thead>
                                                         <tr className="flex-table header" role="rowgroup">
                                                             <th className="flex-row first" role="columnheader">Date</th>
 
@@ -113,202 +141,186 @@ class Home extends Component {
 
                                                             <th className="flex-row" role="columnheader">Result</th>
                                                         </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                        {
-                                                            this.props.betsHome
+                                                    </thead>
+
+                                                    <tbody>
+                                                    {
+                                                        this.props.betsHome.length >= 1
+                                                        ?
+                                                        this.props.betsHome.map(bets =>
+                                                            this.props.username
+                                                            ?
+                                                            (
+                                                                bets.isFinished
                                                                 ?
-                                                                this.props.betsHome.map(bets =>
-                                                                    this.props.username
-                                                                        ?
-                                                                        (
-                                                                            bets.isFinished
-                                                                                ?
-                                                                                <tr key={bets._id}
-                                                                                    className="flex-table row"
-                                                                                    role="rowgroup">
-                                                                                    <td className="flex-row first"
-                                                                                        role="cell"><Moment
-                                                                                        format="DD.MM.YYYY">{bets.date}</Moment>
-                                                                                    </td>
-                                                                                    <td className="flex-row"
-                                                                                        role="cell">{bets.homeTeam}</td>
+                                                                <tr key={bets._id}
+                                                                    className="flex-table row" role="rowgroup">
+                                                                    <td className="flex-row first" role="cell"><Moment format="DD.MM.YYYY">{bets.date}</Moment>
+                                                                    </td>
+                                                                    <td className="flex-row" role="cell">{bets.homeTeam}</td>
 
-                                                                                    <td className="flex-row"
-                                                                                        role="cell">{bets.result}</td>
+                                                                    <td className="flex-row" role="cell">{bets.result}</td>
 
-                                                                                    <td className="flex-row"
-                                                                                        role="cell">{bets.awayTeam}</td>
+                                                                    <td className="flex-row" role="cell">{bets.awayTeam}</td>
 
-                                                                                    <td className="flex-row"
-                                                                                        role="cell">{bets.prediction}</td>
+                                                                    <td className="flex-row"
+                                                                        role="cell">{bets.prediction}</td>
 
-                                                                                    <td className="flex-row"
-                                                                                        role="cell">{bets.odd}</td>
+                                                                    <td className="flex-row" role="cell">{bets.odd}</td>
 
-                                                                                    <td className="flex-row"
-                                                                                        role="cell">{bets.resultBet}</td>
-                                                                                </tr>
-                                                                                :
-                                                                                null
-                                                                        )
-                                                                        :
-                                                                        null
-                                                                )
+                                                                    <td className="flex-row" role="cell">{bets.resultBet}</td>
+                                                                </tr>
                                                                 :
                                                                 null
-                                                        }
-                                                        </tbody>
-                                                    </table>
+                                                            )
+                                                            :
+                                                            null
+                                                        )
+                                                        :
+                                                            (
+                                                                <tr>
+                                                                    <td>No results.</td>
+                                                                </tr>
+                                                            )
+                                                    }
+                                                    </tbody>
+                                                </table>
 
-                                                    <p className="viewAll">View all <Link
-                                                        to="/history">Predictions</Link>
-                                                    </p>
-                                                </div>
+                                                <p className="viewAll">View all <Link to="/history">Predictions</Link>
+                                                </p>
                                             </div>
-                                        </section>
-
-                                        <section className="section section--bookmakers">
-                                            <div className="section__head">
-                                                <h3 className="section__title">Top Bookmakers</h3>
-                                            </div>
-
-                                            <div className="section__body">
-                                                <a target="_blank" rel="noopener noreferrer"
-                                                   href="https://www.bet365.com/#/HO/">
-                                                    <div className="img-container">
-                                                        <img src={bet365} alt="bet365"/>
-                                                    </div>
-                                                </a>
-
-                                                <a target="_blank" rel="noopener noreferrer"
-                                                   href="https://www.betfair.com">
-                                                    <div className="img-container">
-                                                        <img src={betfair} alt="betfair"/>
-                                                    </div>
-                                                </a>
-
-                                                <a target="_blank" rel="noopener noreferrer"
-                                                   href="https://m.skybet.com/">
-                                                    <div className="img-container">
-                                                        <img src={skybet} alt="skybet"/>
-                                                    </div>
-                                                </a>
-
-                                                <a target="_blank" rel="noopener noreferrer"
-                                                   href="https://www.unibet.eu/s">
-                                                    <div className="img-container">
-                                                        <img src={unibet} alt="unibet-sport"/>
-                                                    </div>
-                                                </a>
-
-                                                <a target="_blank" rel="noopener noreferrer"
-                                                   href="https://www.soprm6502.com/en/?refer=XAFF2626&aup=True">
-                                                    <div className="img-container">
-                                                        <img src={pinnacle} alt="pinnacle"/>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </section>
-
-                                        <section className="section section--contact">
-                                            <div className="section__head">
-                                                <h2 className="section__title"> Customers Support</h2>
-                                            </div>
-
-                                            <div className="section__body">
-                                                <div className="section__entry">
-                                                    <p>The team of Football Prediction is available 24/7 and awaits your
-                                                        questions and queries about our services and football
-                                                        predictions. We will endeavor to respond to every inquiry in the
-                                                        shortest possible time with individual attention because every
-                                                        customer is important to us.</p>
-                                                </div>
-
-                                                <ReactContactForm className="contactForm"
-                                                                  to="footballprotipster123@gmail.com"/>
-                                            </div>
-                                        </section>
-
-                                        <section className="section section--divisions">
-                                            <div className="section__head">
-                                                <h2 className="section__title">The most popular Football Divisions:</h2>
-                                            </div>
-
-                                            <div className="section__entry">
-                                                <div className="grid">
-                                                    <div className="division">
-                                                        <div className="img-container">
-                                                            <img src={premierLeague} alt="championsLeague"/>
-                                                        </div>
-                                                    </div>
-
-                                                    <div className="division">
-                                                        <div className="img-container">
-                                                            <img src={leagueEuropa} alt="championsLeague"/>
-                                                        </div>
-                                                    </div>
-
-                                                    <div className="division">
-                                                        <div className="img-container">
-                                                            <img src={championsLeague} alt="championsLeague"/>
-                                                        </div>
-                                                    </div>
-
-                                                    <div className="division">
-                                                        <div className="img-container">
-                                                            <img src={serieA} alt="championsLeague"/>
-                                                        </div>
-                                                    </div>
-
-                                                    <div className="division">
-                                                        <div className="img-container">
-                                                            <img src={bundesLeague} alt="championsLeague"/>
-                                                        </div>
-                                                    </div>
-
-                                                    <div className="division">
-                                                        <div className="img-container">
-                                                            <img src={primeraDivision} alt="championsLeague"/>
-                                                        </div>
-                                                    </div>
-
-                                                    <div className="division">
-                                                        <div className="img-container">
-                                                            <img src={leagueOne} alt="championsLeague"/>
-                                                        </div>
-                                                    </div>
-
-                                                    <div className="division">
-                                                        <div className="img-container">
-                                                            <img src={leaguePortugal} alt="championsLeague"/>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </section>
-                                    </div>
-                                </div>
-                            </div>
-                        )
-                        :
-                        (
-                            <div className="intro intro--home">
-                                <div className="shell">
-                                    <div className="intro__inner">
-                                        <h1 className="intro__title">
-                                            Welcome to FootballProtipster
-                                        </h1>
-
-                                        <div className="intro__entry">
-                                            You like to watch football and want to make money. Sign up in our site and
-                                            immerse
-                                            yourself in the world of football bets.
                                         </div>
+                                    </section>
+
+                                    <section className="section section--bookmakers">
+                                        <div className="section__head">
+                                            <h3 className="section__title">Top Bookmakers</h3>
+                                        </div>
+
+                                        <div className="section__body">
+                                            <a target="_blank" rel="noopener noreferrer" href="https://www.bet365.com/#/HO/">
+                                                <div className="img-container">
+                                                    <img src={bet365} alt="bet365"/>
+                                                </div>
+                                            </a>
+
+                                            <a target="_blank" rel="noopener noreferrer" href="https://www.betfair.com">
+                                                <div className="img-container">
+                                                    <img src={betfair} alt="betfair"/>
+                                                </div>
+                                            </a>
+
+                                            <a target="_blank" rel="noopener noreferrer" href="https://m.skybet.com/">
+                                                <div className="img-container">
+                                                    <img src={skybet} alt="skybet"/>
+                                                </div>
+                                            </a>
+
+                                            <a target="_blank" rel="noopener noreferrer" href="https://www.unibet.eu/s">
+                                                <div className="img-container">
+                                                    <img src={unibet} alt="unibet-sport"/>
+                                                </div>
+                                            </a>
+
+                                            <a target="_blank" rel="noopener noreferrer" href="https://www.soprm6502.com/en/?refer=XAFF2626&aup=True">
+                                                <div className="img-container">
+                                                    <img src={pinnacle} alt="pinnacle"/>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </section>
+
+                                    <section className="section section--contact">
+                                        <div className="section__head">
+                                            <h2 className="section__title"> Customers Support</h2>
+                                        </div>
+
+                                        <div className="section__body">
+                                            <div className="section__entry">
+                                                <p>The team of Football Prediction is available 24/7 and awaits your questions and queries about our services and football predictions. We will endeavor to respond to every inquiry in the shortest possible time with individual attention because every customer is important to us.</p>
+                                            </div>
+
+                                            <ReactContactForm className="contactForm" to="footballprotipster123@gmail.com"/>
+                                        </div>
+                                    </section>
+
+                                    <section className="section section--divisions">
+                                        <div className="section__head">
+                                            <h2 className="section__title">The most popular Football Divisions:</h2>
+                                        </div>
+
+                                        <div className="section__entry">
+                                            <div className="grid">
+                                                <div className="division">
+                                                    <div className="img-container">
+                                                        <img src={premierLeague} alt="championsLeague"/>
+                                                    </div>
+                                                </div>
+
+                                                <div className="division">
+                                                    <div className="img-container">
+                                                        <img src={leagueEuropa} alt="championsLeague"/>
+                                                    </div>
+                                                </div>
+
+                                                <div className="division">
+                                                    <div className="img-container">
+                                                        <img src={championsLeague} alt="championsLeague"/>
+                                                    </div>
+                                                </div>
+
+                                                <div className="division">
+                                                    <div className="img-container">
+                                                        <img src={serieA} alt="championsLeague"/>
+                                                    </div>
+                                                </div>
+
+                                                <div className="division">
+                                                    <div className="img-container">
+                                                        <img src={bundesLeague} alt="championsLeague"/>
+                                                    </div>
+                                                </div>
+
+                                                <div className="division">
+                                                    <div className="img-container">
+                                                        <img src={primeraDivision} alt="championsLeague"/>
+                                                    </div>
+                                                </div>
+
+                                                <div className="division">
+                                                    <div className="img-container">
+                                                        <img src={leagueOne} alt="championsLeague"/>
+                                                    </div>
+                                                </div>
+
+                                                <div className="division">
+                                                    <div className="img-container">
+                                                        <img src={leaguePortugal} alt="championsLeague"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+                            </div>
+                        </div>
+                    )
+                    :
+                    (
+                        <div className="intro intro--home">
+                            <div className="shell">
+                                <div className="intro__inner">
+                                    <h1 className="intro__title">
+                                        Welcome to FootballProtipster
+                                    </h1>
+
+                                    <div className="intro__entry">
+                                        You like to watch football and want to make money. Sign up in our site and immerse yourself in the world of football bets.
                                     </div>
                                 </div>
                             </div>
-                        )
+                        </div>
+                    )
                 }
             </div>
         )

@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {Link, NavLink} from "react-router-dom";
 
+import ToggleButton from '../SideNavigation/ToggleButton';
 import './Header.css';
-import ToggleButton from '../SideNavigation/ToggleButton'
 import logo from '../../images/logo.png';
 
 class Header extends Component {
@@ -23,13 +23,12 @@ class Header extends Component {
 
                         {
                             this.props.username
-                                ?
-                                (
-
-                                    <p>Welcome {this.props.username}!</p>
-                                )
-                                :
-                                null
+                            ?
+                            (
+                                <p>Welcome {this.props.username}!</p>
+                            )
+                            :
+                            null
                         }
 
                         <nav className="nav">
@@ -39,40 +38,40 @@ class Header extends Component {
                                 </li>
                                 {
                                     this.props.username
-                                        ?
-                                        (
-                                            <span>
-                                                {
-                                                    this.props.isAdmin
-                                                        ?
-                                                        (<li>
-                                                            <NavLink to="/create">Create</NavLink>
-                                                        </li>)
-                                                        :
-                                                        null
-                                                }
+                                    ?
+                                    (
+                                        <span>
+                                            {
+                                                this.props.isAdmin
+                                                ?
+                                                (<li>
+                                                    <NavLink to="/create">Create</NavLink>
+                                                </li>)
+                                                :
+                                                null
+                                            }
 
-                                                <li>
-                                                    <NavLink to="/history">History</NavLink>
-                                                </li>
+                                            <li>
+                                                <NavLink to="/history">History</NavLink>
+                                            </li>
 
-                                                <li>
-                                                    <Link to="#" onClick={this.props.logout}>Logout</Link>
-                                                </li>
-                                            </span>
-                                        )
-                                        :
-                                        (
-                                            <span>
-                                                <li>
-                                                    <NavLink to="/register">Register</NavLink>
-                                                </li>
+                                            <li>
+                                                <Link to="#" onClick={this.props.logout}>Logout</Link>
+                                            </li>
+                                        </span>
+                                    )
+                                    :
+                                    (
+                                        <span>
+                                            <li>
+                                                <NavLink to="/register">Register</NavLink>
+                                            </li>
 
-                                                <li>
-                                                    <NavLink to="/login">Login</NavLink>
-                                                </li>
-                                            </span>
-                                        )
+                                            <li>
+                                                <NavLink to="/login">Login</NavLink>
+                                            </li>
+                                        </span>
+                                    )
                                 }
                             </ul>
                         </nav>

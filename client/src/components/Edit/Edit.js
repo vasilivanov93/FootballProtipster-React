@@ -24,7 +24,7 @@ class Edit extends Component {
             prediction: nextProps.bet.prediction,
             odd: nextProps.bet.odd,
             resultBet: nextProps.bet.resultBet,
-        })
+        });
     }
 
     render() {
@@ -42,9 +42,7 @@ class Edit extends Component {
                                     <i className="fas fa-user"/>
                                 </label>
 
-                                <input type="text" onChange={this.handleChange} id="homeTeam" className="field"
-                                       name="homeTeam" placeholder="Home Team" value={this.state.homeTeam}
-                                       disabled/>
+                                <input type="text" onChange={this.handleChange} id="homeTeam" className="field" name="homeTeam" placeholder="Home Team" value={this.state.homeTeam} disabled/>
                             </div>
 
                             <div className="form__controls">
@@ -52,9 +50,7 @@ class Edit extends Component {
                                     <i className="fas fa-futbol"/>
                                 </label>
 
-                                <input type="text" onChange={this.handleChange} id="result" className="field"
-                                       name="result" autoComplete="off" placeholder="? - ?" value={this.state.result}
-                                       required/>
+                                <input type="text" onChange={this.handleChange} id="result" className="field" name="result" autoComplete="off" placeholder="? - ?" value={this.state.result} required/>
                             </div>
 
                             <div className="form__controls">
@@ -62,9 +58,7 @@ class Edit extends Component {
                                     <i className="fas fa-user"/>
                                 </label>
 
-                                <input type="text" onChange={this.handleChange} id="awayTeam" className="field"
-                                       name="awayTeam" placeholder="Away Team" value={this.state.awayTeam}
-                                       disabled/>
+                                <input type="text" onChange={this.handleChange} id="awayTeam" className="field" name="awayTeam" placeholder="Away Team" value={this.state.awayTeam} disabled/>
                             </div>
 
                             <div className="form__controls">
@@ -72,9 +66,7 @@ class Edit extends Component {
                                     <i className="fas fa-futbol"/>
                                 </label>
 
-                                <input type="text" onChange={this.handleChange} id="prediction" className="field"
-                                       name="prediction" placeholder="Prediction" value={this.state.prediction}
-                                       disabled/>
+                                <input type="text" onChange={this.handleChange} id="prediction" className="field" name="prediction" placeholder="Prediction" value={this.state.prediction} disabled/>
                             </div>
 
                             <div className="form__controls">
@@ -82,8 +74,7 @@ class Edit extends Component {
                                     <i className="fas fa-futbol"/>
                                 </label>
 
-                                <input type="text" onChange={this.handleChange} id="odd" className="field" name="odd"
-                                       placeholder="Odd" value={this.state.odd} disabled/>
+                                <input type="text" onChange={this.handleChange} id="odd" className="field" name="odd" placeholder="Odd" value={this.state.odd} disabled/>
                             </div>
 
                             <div className="form__controls">
@@ -91,9 +82,7 @@ class Edit extends Component {
                                     <i className="fas fa-futbol"/>
                                 </label>
 
-                                <input type="text" onChange={this.handleChange} id="resultBet" className="field"
-                                       name="resultBet" autoComplete="off" placeholder="Win/Lose" value={this.state.resultBet}
-                                       required/>
+                                <input type="text" onChange={this.handleChange} id="resultBet" className="field" name="resultBet" autoComplete="off" placeholder="Win/Lose" value={this.state.resultBet} required/>
                             </div>
                         </div>
 

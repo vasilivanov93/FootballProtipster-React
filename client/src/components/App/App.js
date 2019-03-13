@@ -1,21 +1,21 @@
-import React, { Component } from 'react';
-import { Route, Switch, Redirect, withRouter } from "react-router-dom";
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.min.css';
+import React, {Component} from 'react';
+import {Route, Switch, Redirect, withRouter} from "react-router-dom";
+import {toast, ToastContainer} from 'react-toastify';
 
 import Home from '../Home/Home'
 import Header from "../Header/Header";
+import SideNavigation from "../SideNavigation/SideNavigation";
+import Backdrop from "../Backdrop/Backdrop";
 import Footer from "../Footer/Footer";
 import Register from '../Register/Register';
 import Login from '../Login/Login';
 import Create from "../Create/Create";
 import History from "../History/History";
-import './App.css';
+import HistoryAdmin from "../HistoryAdmin/HistoryAdmin";
 import Edit from "../Edit/Edit";
 import Delete from "../Delete/Delete";
-import HistoryAdmin from "../HistoryAdmin/HistoryAdmin";
-import SideNavigation from "../SideNavigation/SideNavigation";
-import Backdrop from "../Backdrop/Backdrop";
+import './App.css';
+import 'react-toastify/dist/ReactToastify.min.css';
 
 class App extends Component {
     constructor(props) {
@@ -36,7 +36,7 @@ class App extends Component {
         const localUsername = localStorage.getItem('username');
         const isAdmin = localStorage.getItem('isAdmin') === 'true';
 
-        if (localUsername) {
+        if (localUsername !== "undefined") {
             this.setState({
                 username: localUsername,
                 isAdmin: isAdmin
@@ -243,7 +243,8 @@ class App extends Component {
                 <SideNavigation show={this.state.sideNavigationOpen}
                                 isAdmin={this.state.isAdmin}
                                 username={this.state.username}
-                                logout={this.logout.bind(this)}/>
+                                logout={this.logout.bind(this)}
+                />
 
                 {backdrop}
 
@@ -311,7 +312,8 @@ class App extends Component {
                            render={() =>
                                this.state.username
                                    ?
-                                   this.state.isAdmin ?
+                                   this.state.isAdmin
+                                       ?
                                        <HistoryAdmin
                                            username={this.state.username}
                                            isAdmin={this.state.isAdmin}

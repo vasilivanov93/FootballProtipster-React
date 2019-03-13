@@ -175,4 +175,28 @@
         display: none;
         padding-left: 0;
     }
+
+    .Home .dailyPrediction {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .Home .section--contact .section__body {
+        flex-direction: column;
+    }
+
+    .Home .section--contact .section__body .section__entry {
+        padding-right: 0;
+    }
+
+    .Home .section--contact .section__body .contactForm {
+        padding-left: 0;
+    }
+}
+
+@media (max-width:1024px) {
+    .Home .dailyPrediction {
+        flex-direction: column;
+        justify-content: center;
+    }
 }
