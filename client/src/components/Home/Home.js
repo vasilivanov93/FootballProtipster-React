@@ -237,10 +237,10 @@ class Home extends Component {
 
                                         <div className="section__body">
                                             <div className="section__entry">
-                                                <p>The team of Football Prediction is available 24/7 and awaits your questions and queries about our services and football predictions. We will endeavor to respond to every inquiry in the shortest possible time with individual attention because every customer is important to us.</p>
+                                                <p>The team of Football ProTipster is available 24/7 and awaits your questions and queries about our services and football predictions. We will endeavor to respond to every inquiry in the shortest possible time with individual attention because every customer is important to us.</p>
                                             </div>
 
-                                            <ReactContactForm className="contactForm" to="footballprotipster123@gmail.com"/>
+                                            <ReactContactForm className="contactForm"  to="footballprotipster123@gmail.com" titlePlaceholder="Title" contentsPlaceholder="Write a message:" buttonText="Send"/>
                                         </div>
                                     </section>
 
