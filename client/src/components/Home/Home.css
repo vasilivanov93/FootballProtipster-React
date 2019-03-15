@@ -43,6 +43,7 @@
     text-shadow: 0.08em 0.08em 0.08em rgba(41, 59, 143, 0.7);
     text-transform: capitalize;
     text-align: center;
+    padding-bottom: 0;
 }
 
 .Home .section--about {
@@ -134,6 +135,7 @@
 .section--contact .section__entry {
     flex: 1 0 50%;
     padding-right: 15px;
+    text-align: justify;
 }
 
 .section--contact .contactForm {
